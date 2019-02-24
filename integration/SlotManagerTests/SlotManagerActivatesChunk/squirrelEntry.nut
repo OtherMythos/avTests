@@ -23,7 +23,7 @@ function update(){
     local timeDiff = time() - start;
     if(timeDiff >= 60){
         //Timeout after 60 seconds and fail the test
-        //_test.assertTrue(false);
+        _test.assertTrue(false);
         _test.endTest();
     }
 }
