@@ -2,7 +2,7 @@ _world.createWorld();
 //Set this to 0 so no other chunks are loaded automatically.
 _world.setPlayerLoadRadius(0);
 
-_test.slotManager.activateChunk("map", 1, 2);
+_test.slotManager.constructChunk("map", 1, 2);
 
 function update(){
     if(!("start" in getroottable())){
@@ -14,12 +14,12 @@ function update(){
     print("Chunk list has size " + chunkListSize);
 
     if(chunkListSize == 1){
-        print("Found the chunk!")
-        //Make sure it is active.
+        print("Found the chunk!");
+        //Make sure it's not active.
         local val = _test.slotManager.getChunkActive(0);
 
         print("Chunk active state is " + val)
-        _test.assertTrue(val);
+        _test.assertFalse(val);
         _test.endTest();
     }else{
         print("Chunk not found.");
@@ -27,7 +27,6 @@ function update(){
 
     local timeDiff = time() - start;
     if(timeDiff >= 60){
-        //Timeout after 60 seconds and fail the test
         _test.assertTrue(false);
         _test.endTest();
     }
