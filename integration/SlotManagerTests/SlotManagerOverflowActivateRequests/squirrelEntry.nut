@@ -20,6 +20,7 @@ function update(){
 
         if(chunkListSize == 100){
             print("All chunks loaded.")
+            fsdljflskdl
             _test.endTest();
         }
     }
