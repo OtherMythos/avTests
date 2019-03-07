@@ -1,5 +1,11 @@
+//A test to check if the radius loader loads chunks while moving.
+//The player radius is set to something small, so only a few chunks can be loaded at once, and the player position is moved around.
+//The idea is that no more than a certain number of chunks are ever loaded.
+//If it ever goes over this ammount (in this case 2), the test fails.
+
 _world.setPlayerLoadRadius(20);
 _world.createWorld();
+_slotManager.setCurrentMap("map");
 
 function update(){
     if(!("start" in getroottable())){
@@ -21,8 +27,7 @@ function update(){
         //If there are more than two slots loaded at once, that means the radius is broken.
         //With the size of 50 for a slot, and 20 for the radius, with the player moving along the x there should never be more than 2.
         print("More than two slots loaded at once! Failing.")
-        _test.assertTrue(false);
-        _test.endTest();
+        _test.endTest(false);
     }
 
 
