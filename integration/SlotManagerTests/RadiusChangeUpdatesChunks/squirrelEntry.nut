@@ -1,7 +1,7 @@
-_world.createWorld();
 //Set the radius to be 25. 4 chunks should be loaded in a world with a slot size of 50.
 //I used 50 because I wanted to try a different number than the default in the avSetup file.
 _world.setPlayerLoadRadius(25);
+_world.createWorld();
 
 function update(){
     if(!("start" in getroottable())){
