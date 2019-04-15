@@ -1,14 +1,15 @@
 //Set the radius to be 25. 4 chunks should be loaded in a world with a slot size of 50.
 //I used 50 because I wanted to try a different number than the default in the avSetup file.
-_world.setPlayerLoadRadius(25);
-_world.createWorld();
+
+function start(){
+    ::startTime <- time();
+    ::stage <- 0;
+
+    _world.setPlayerLoadRadius(25);
+    _world.createWorld();
+}
 
 function update(){
-    if(!("start" in getroottable())){
-        getroottable().start <- time();
-        getroottable().stage <- 0;
-    }
-
     if(stage == 0){
         //Check that the 4 chunks are loaded.
         local chunkListSize = _test.slotManager.getChunkListSize();
@@ -16,7 +17,7 @@ function update(){
 
         if(chunkListSize == 4){
             //Update the time to the current just to avoid a timeout.
-            getroottable().start <- time();
+            ::startTime <- time();
             stage++;
         }
     }
@@ -29,7 +30,7 @@ function update(){
         local chunkListSize = _test.slotManager.getChunkListSize();
 
         if(chunkListSize == 12){
-            getroottable().start <- time();
+            ::startTime <- time();
             stage++;
         }
     }
@@ -47,7 +48,7 @@ function update(){
         }
     }
 
-    local timeDiff = time() - start;
+    local timeDiff = time() - startTime;
     if(timeDiff >= 60){
         _test.assertTrue(false);
         _test.endTest();

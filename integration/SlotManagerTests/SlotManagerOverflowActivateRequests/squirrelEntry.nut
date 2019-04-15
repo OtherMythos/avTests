@@ -1,12 +1,13 @@
-_world.createWorld();
-_world.setPlayerLoadRadius(0);
+
+function start(){
+    _world.createWorld();
+    _world.setPlayerLoadRadius(0);
+
+    ::stage <- 0;
+    ::startTime <- time();
+}
 
 function update(){
-    if(!("start" in getroottable())){
-        getroottable().start <- time();
-        getroottable().stage <- 0;
-    }
-
     if(stage == 0){
         for(local y = 0; y < 10; y++){
             for(local x = 0; x < 10; x++){
@@ -24,7 +25,7 @@ function update(){
         }
     }
 
-    local timeDiff = time() - start;
+    local timeDiff = time() - startTime;
     if(timeDiff >= 60){
         _test.assertTrue(false);
         _test.endTest();

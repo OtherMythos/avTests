@@ -3,21 +3,22 @@
 //The idea is that no more than a certain number of chunks are ever loaded.
 //If it ever goes over this ammount (in this case 2), the test fails.
 
-_world.setPlayerLoadRadius(20);
-_world.createWorld();
-_slotManager.setCurrentMap("map");
+function start(){
+    _world.setPlayerLoadRadius(20);
+    _world.createWorld();
+    _slotManager.setCurrentMap("map");
+
+    ::stage <- 0;
+    ::startTime <- time();
+
+    ::chunkTravelDistance <- 10;
+    ::currentPosition <- SlotPosition(0, 0, 0, 0, 25);
+
+    _camera.setPosition(0, 100, 100);
+    _camera.lookAt(0, 0, 0);
+}
 
 function update(){
-    if(!("start" in getroottable())){
-        getroottable().start <- time();
-        getroottable().stage <- 0;
-        getroottable().chunkTravelDistance <- 10;
-        getroottable().currentPosition <- SlotPosition(0, 0, 0, 0, 25);
-
-        _camera.setPosition(0, 100, 100);
-        _camera.lookAt(0, 0, 0);
-    }
-
     _world.setPlayerPosition(currentPosition);
     local absPos = currentPosition.toVector3();
     _camera.setPosition(absPos[0], absPos[1] + 100, absPos[2] + 100);
@@ -73,7 +74,7 @@ function update(){
         _test.endTest();
     }
 
-    local timeDiff = time() - start;
+    local timeDiff = time() - startTime;
     if(timeDiff >= 1000){
         _test.assertTrue(false);
         _test.endTest();
