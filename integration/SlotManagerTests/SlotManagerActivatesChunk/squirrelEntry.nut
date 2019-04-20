@@ -1,8 +1,12 @@
 
 function start(){
-    _world.createWorld();
     //Set this to 0 so no other chunks are loaded automatically.
+    //This should be done at the start of execution so no other chunks are accidentally loaded.
     _world.setPlayerLoadRadius(0);
+    _slotManager.setCurrentMap("first");
+
+
+    _world.createWorld();
     ::startTime <- time();
 
     _test.slotManager.activateChunk("map", 1, 2);

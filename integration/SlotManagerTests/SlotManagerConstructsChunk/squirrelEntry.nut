@@ -1,8 +1,8 @@
 
 function start(){
-    _world.createWorld();
     //Set this to 0 so no other chunks are loaded automatically.
     _world.setPlayerLoadRadius(0);
+    _world.createWorld();
 
     ::startTime <- time();
 

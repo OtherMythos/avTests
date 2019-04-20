@@ -1,7 +1,7 @@
 
 function start(){
-    _world.createWorld();
     _world.setPlayerLoadRadius(0);
+    _world.createWorld();
 
     ::stage <- 0;
     ::startTime <- time();
