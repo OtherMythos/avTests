@@ -3,7 +3,6 @@
 //This test checks to make sure that this shift actually occurred.
 
 function start(){
-    ::startTime <- time();
     ::stage <- 0;
 
     _world.setPlayerLoadRadius(1);
@@ -59,12 +58,6 @@ function update(){
         stage++;
     }
     if(stage == 4){
-        _test.endTest();
-    }
-
-    local timeDiff = time() - ::startTime;
-    if(timeDiff >= 1000){
-        _test.assertTrue(false);
         _test.endTest();
     }
 }

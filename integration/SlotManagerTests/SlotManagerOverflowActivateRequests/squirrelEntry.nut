@@ -4,7 +4,6 @@ function start(){
     _world.createWorld();
 
     ::stage <- 0;
-    ::startTime <- time();
 }
 
 function update(){
@@ -23,11 +22,5 @@ function update(){
             print("All chunks loaded.")
             _test.endTest();
         }
-    }
-
-    local timeDiff = time() - startTime;
-    if(timeDiff >= 60){
-        _test.assertTrue(false);
-        _test.endTest();
     }
 }

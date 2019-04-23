@@ -9,7 +9,6 @@ function start(){
     _slotManager.setCurrentMap("map");
 
     ::stage <- 0;
-    ::startTime <- time();
 
     ::chunkTravelDistance <- 10;
     ::currentPosition <- SlotPosition(0, 0, 0, 0, 25);
@@ -71,12 +70,6 @@ function update(){
         }
     }
     if(stage == 4){
-        _test.endTest();
-    }
-
-    local timeDiff = time() - startTime;
-    if(timeDiff >= 1000){
-        _test.assertTrue(false);
         _test.endTest();
     }
 }

@@ -7,7 +7,6 @@ function start(){
 
 
     _world.createWorld();
-    ::startTime <- time();
 
     _test.slotManager.activateChunk("map", 1, 2);
 }
@@ -27,12 +26,5 @@ function update(){
         _test.endTest();
     }else{
         print("Chunk not found.");
-    }
-
-    local timeDiff = time() - startTime;
-    if(timeDiff >= 60){
-        //Timeout after 60 seconds and fail the test
-        _test.assertTrue(false);
-        _test.endTest();
     }
 }

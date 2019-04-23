@@ -2,7 +2,6 @@
 //I used 50 because I wanted to try a different number than the default in the avSetup file.
 
 function start(){
-    ::startTime <- time();
     ::stage <- 0;
 
     _world.setPlayerLoadRadius(25);
@@ -16,8 +15,6 @@ function update(){
         print(chunkListSize)
 
         if(chunkListSize == 4){
-            //Update the time to the current just to avoid a timeout.
-            ::startTime <- time();
             stage++;
         }
     }
@@ -30,7 +27,6 @@ function update(){
         local chunkListSize = _test.slotManager.getChunkListSize();
 
         if(chunkListSize == 12){
-            ::startTime <- time();
             stage++;
         }
     }
@@ -46,11 +42,5 @@ function update(){
         if(chunkListSize == 0){
             _test.endTest();
         }
-    }
-
-    local timeDiff = time() - startTime;
-    if(timeDiff >= 60){
-        _test.assertTrue(false);
-        _test.endTest();
     }
 }

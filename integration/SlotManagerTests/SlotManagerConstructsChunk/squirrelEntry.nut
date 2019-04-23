@@ -4,8 +4,6 @@ function start(){
     _world.setPlayerLoadRadius(0);
     _world.createWorld();
 
-    ::startTime <- time();
-
     _test.slotManager.constructChunk("map", 1, 2);
 }
 
@@ -24,11 +22,5 @@ function update(){
         _test.endTest();
     }else{
         print("Chunk not found.");
-    }
-
-    local timeDiff = time() - startTime;
-    if(timeDiff >= 60){
-        _test.assertTrue(false);
-        _test.endTest();
     }
 }
