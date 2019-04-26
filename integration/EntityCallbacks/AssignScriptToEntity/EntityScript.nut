@@ -1,7 +1,7 @@
-function moved(){
+function moved(e){
     ::movementCount++;
 }
 
-function destroyed(){
+function destroyed(e){
     ::destroyedCount++;
 }

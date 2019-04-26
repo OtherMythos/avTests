@@ -1,7 +1,7 @@
-function moved(){
-    
+function moved(e){
+
 }
 
-function destroyed(){
+function destroyed(e){
 
 }

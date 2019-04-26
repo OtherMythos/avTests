@@ -1,3 +1,3 @@
-function moved(){
+function moved(e){
     ::entityScore--;
 }
