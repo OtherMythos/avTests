@@ -1,6 +1,9 @@
 //A test to check that GetAvailableSaves returns a filled array with all available saves.
 
 function start(){
+    //Assure the save directory exists.
+    _test.serialisation.assureSaveDirectory();
+
     _world.createWorld();
 
     _serialisation.clearAllSaves();

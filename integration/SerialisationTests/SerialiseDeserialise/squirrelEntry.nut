@@ -1,6 +1,9 @@
 //Serialise and deserialise the world, checking that the things setup in the previous world are still there.
 
 function start(){
+    //Assure the save directory exists.
+    _test.serialisation.assureSaveDirectory();
+
     _world.createWorld();
 
     _serialisation.clearAllSaves();
@@ -98,7 +101,7 @@ function update(){
     }
     if(stage == 11){
         checkInitialHandle();
-        
+
         _serialisation.clearAllSaves();
         _test.endTest();
     }

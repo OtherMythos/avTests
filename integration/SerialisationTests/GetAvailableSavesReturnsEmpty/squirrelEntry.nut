@@ -2,11 +2,13 @@
 
 function start(){
     _world.createWorld();
+
+    _test.serialisation.assureSaveDirectory();
+    _test.assertTrue(_settings.getSaveDirectoryViable());
 }
 
 function update(){
     _serialisation.clearAllSaves();
-    _test.assertTrue(_settings.getSaveDirectoryViable());
 
     local saves = _serialisation.getAvailableSaves();
     _test.assertEqual(0, saves.len());
