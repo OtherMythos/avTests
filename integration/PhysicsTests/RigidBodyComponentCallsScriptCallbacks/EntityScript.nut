@@ -1,0 +1,3 @@
+function moved(e){
+    ::movementCount++;
+}
