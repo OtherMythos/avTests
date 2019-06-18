@@ -54,18 +54,24 @@ function update(){
     if(stage == 3){
         stageCount++;
 
-        //TODO there is currently a bug in the engine, not the test.
-        //There is a single frame of logic difference between the body being added and the body being removed from the world.
         _test.assertEqual(en.getPosition(), firstPos);
 
         //Spend a few frames making sure the entity doesn't move.
-        if(stageCount >= 50) {
+        if(stageCount >= 100) {
             stageCount = 0;
             stage++;
         }
     }
     if(stage == 4){
-
+        _physics.dynamics.addBody(body);
+        stage++;
+    }
+    if(stage == 5){
+        local pos = en.getPosition();
+        print(pos.y);
+        if(pos.y <= -100){
+            _test.endTest();
+        }
     }
 
 }
