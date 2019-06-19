@@ -1,6 +1,5 @@
 function start(){
-    //At the moment you can't create shapes without a world.
-    _world.createWorld();
+    
 }
 
 function update(){
