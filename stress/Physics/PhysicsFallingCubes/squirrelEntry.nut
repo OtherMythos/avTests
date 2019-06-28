@@ -1,11 +1,11 @@
 function start(){
     _world.createWorld();
 
-    _camera.setPosition(0, 50, 100);
-    _camera.lookAt(0, 0, 0);
+    _camera.setPosition(0, 60, 120);
+    _camera.lookAt(20, 0, 20);
 
     //number of cubes in a single axis.
-    ::numCubes <- 4;
+    ::numCubes <- 8;
     ::startTime <- time();
 
     ::cubeShape <- _physics.getCubeShape(1, 1, 1);
@@ -33,8 +33,7 @@ function setupScene(){
             for(local x = 0; x < numCubes; x++){
                 constructionInfo["origin"] = [x * 5, (y * 5) + 50, z * 5];
                 local body = _physics.dynamics.createRigidBody(cubeShape, constructionInfo);
-                local mesh = _mesh.create("ogrehead2.mesh");
-                mesh.setScale(0.1, 0.1, 0.1);
+                local mesh = _mesh.create("cube");
                 mesh.attachRigidBody(body);
 
                 meshesContainer[index] = mesh;
