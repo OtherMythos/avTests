@@ -27,7 +27,7 @@ function update(){
     if(stage == 1){
         //Move the slot position by ten.
         //The position of the one chunk should be moved to -10, -10
-        _slotManager.setOrigin(0, 0, 10, 0, 10);
+        _slotManager.setOrigin(SlotPosition(0, 0, 10, 0, 10));
 
         ::chunkPos <- _test.slotManager.getChunkVectorPosition(0);
         _test.assertEqual(-10, chunkPos[0]);
@@ -38,7 +38,7 @@ function update(){
     }
     if(stage == 2){
         //50 is the size of a slot, so -1, -1 and 40 would map to 10
-        _slotManager.setOrigin(-1, -1, 40, 0, 40);
+        _slotManager.setOrigin(SlotPosition(-1, -1, 40, 0, 40));
 
         ::chunkPos <- _test.slotManager.getChunkVectorPosition(0);
         _test.assertEqual(10, chunkPos[0]);
@@ -48,7 +48,7 @@ function update(){
         stage++;
     }
     if(stage == 3){
-        _slotManager.setOrigin(100, 100, 0, 0, 0);
+        _slotManager.setOrigin(SlotPosition(100, 100, 0, 0, 0));
 
         ::chunkPos <- _test.slotManager.getChunkVectorPosition(0);
         _test.assertEqual(-5000, chunkPos[0]);
