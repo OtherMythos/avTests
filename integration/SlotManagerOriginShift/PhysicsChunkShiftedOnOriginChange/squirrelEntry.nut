@@ -1,29 +1,8 @@
 //A test to check that physics chunks are shifted when an origin change happens.
 
-function stationary(currentPos){
-    if(currentPos.y < -50){
-        //The shape fell through the shape chunk, so fail.
-        _test.endTest(false);
-    }
-
-    if(previousPos.equals(currentPos)){
-        previousCount++;
-    }else{
-        previousCount = 0;
-    }
-
-    if(previousCount >= 10){
-        //The shape has stayed still for 10 frames, so it is resting on the body on the ground.
-        previousCount = 0;
-        return true;
-    }
-
-    previousPos = currentPos;
-
-    return false;
-}
-
 function start(){
+    dofile(_settings.getDataDirectory() + "/../../../Resources/scripts/physicsScripts.nut");
+
     _world.createWorld();
     _world.setPlayerLoadRadius(1);
     _slotManager.setCurrentMap("physicsTestMap");
