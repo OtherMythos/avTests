@@ -6,9 +6,11 @@ function start(){
 
     ::meshesContainer <- [];
 
+    ::count <- 0;
+
 }
 
-function createCubeShape(){
+function generateNums(){
     local x = rand().tofloat() / RAND_MAX;
     local y = rand().tofloat() / RAND_MAX;
     local z = rand().tofloat() / RAND_MAX;
@@ -16,13 +18,20 @@ function createCubeShape(){
     x += 0.1;
     y += 0.1;
     z += 0.1;
+
+    return [x, y, z];
+}
+
+function createCubeShape(){
+    local size = generateNums();
+
     //Create a different shape for each using a random number.
     //This is intended to stress the shape creation procedure, as each shape should be different enough to cause it to create lots.
-    local shape = _physics.getCubeShape(x, y, z);
+    local shape = _physics.getCubeShape(size[0], size[1], size[2]);
 
     local mesh = _mesh.create("cube");
     local body = _physics.dynamics.createRigidBody(shape, {"origin": [0, 0, 0]});
-    mesh.setScale(x, y, z);
+    mesh.setScale(size[0], size[1], size[2]);
     mesh.attachRigidBody(body);
 
     _physics.dynamics.addBody(body);
@@ -31,15 +40,34 @@ function createCubeShape(){
     meshesContainer.push(mesh);
 }
 
+function createUnusedCube(){
+    //Unused shapes have a different destruction procedure from shapes that were attached, so it's worth testing that.
+    //As the shapes here are only stored in local scope, they should be destroyed when the scope ends.
+    local size = generateNums();
+    local shape = _physics.getCubeShape(size[0], size[1], size[2]);
+}
+
 function removeEntry(){
     //Remove a random shape from the list
     local val = ((rand().tofloat() / RAND_MAX) * meshesContainer.len()).tointeger();
 
     //This should remove all references to the body and the shape, so they should be destroyed.
-    meshesContainer.remove(val);
+    if(count % 3 == 0){
+        meshesContainer.remove(val);
+    }
+    count++;
+
+    if(meshesContainer.len() > 1000){
+        //If the container ever gets too big just delete 900 of the little bastards.
+        meshesContainer.resize(100);
+    }
+    print(meshesContainer.len());
 }
 
 function update(){
+
+    createUnusedCube();
+
     createCubeShape();
     removeEntry();
 }
