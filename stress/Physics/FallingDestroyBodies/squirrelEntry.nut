@@ -57,17 +57,31 @@ function removeEntry(){
     }
     count++;
 
-    if(meshesContainer.len() > 1000){
-        //If the container ever gets too big just delete 900 of the little bastards.
-        meshesContainer.resize(100);
+    if(meshesContainer.len() > 50){
+
+        //Doing the following two commands in a different order has a slightly different outcome on the final result.
+        //It's a different usecase that should be tested each time.
+        if(count % 2 == 0){
+            print("Destroying world first.")
+            _world.destroyWorld();
+            meshesContainer.clear();
+        }else{
+            print("Clearing container first.")
+            meshesContainer.clear();
+            _world.destroyWorld();
+        }
+
     }
     print(meshesContainer.len());
 }
 
 function update(){
 
-    createUnusedCube();
-
-    createCubeShape();
-    removeEntry();
+    if(_world.ready()){
+        createUnusedCube();
+        createCubeShape();
+        removeEntry();
+    }else{
+        _world.createWorld();
+    }
 }
