@@ -1,0 +1,13 @@
+{
+    "Terra": {
+        "TerraTerrainMap00000000": {
+            "diffuse": {
+                "value": [
+                    1.0,
+                    1.0,
+                    1.0
+                ]
+            }
+        }
+    }
+}
