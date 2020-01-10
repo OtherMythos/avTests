@@ -5,4 +5,11 @@
         <ts>third</ts>
         <ts>fourth</ts>
     </b>
+
+    <b id = "1">
+        <ts>first0</ts>
+        <ts>second1</ts>
+        <ts>third2</ts>
+        <ts>fourth3</ts>
+    </b>
 </Dialog_Script>
