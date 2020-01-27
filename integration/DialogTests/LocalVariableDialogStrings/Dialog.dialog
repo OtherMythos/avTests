@@ -1,0 +1,12 @@
+<Dialog_Script>
+    <b id = "0">
+        <ts>first #varName#</ts>
+        <ts>second #varName#</ts>
+        <ts>third #varName#</ts>
+        <ts>fourth #varName#</ts>
+    </b>
+
+    <b id = "1">
+        <ts>dialogString $first$ #second# $third$ #fourth#</ts>
+    </b>
+</Dialog_Script>
