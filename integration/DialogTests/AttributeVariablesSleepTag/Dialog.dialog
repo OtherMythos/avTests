@@ -1,0 +1,10 @@
+<Dialog_Script>
+    <b id = "0">
+        <sleep l = "$targetSleep$"/>
+        <ts>Some Text</ts>
+        <sleep l = "$targetSleep$"/>
+        <ts>Some Text</ts>
+        <sleep l = "2000"/>
+        <ts>Some Text</ts>
+    </b>
+</Dialog_Script>
