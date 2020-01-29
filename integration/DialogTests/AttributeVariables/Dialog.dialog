@@ -1,0 +1,17 @@
+<Dialog_Script>
+    <b id = "0">
+        <jmp id = "$targetJmpBlock$"/>
+    </b>
+
+    <b id = "1">
+        <ts>Block 1</ts>
+    </b>
+    <b id = "2">
+        <ts>Block 2</ts>
+    </b>
+
+
+    <b id = "3">
+        <jmp id = "#targetJmpBlock#"/>
+    </b>
+</Dialog_Script>
