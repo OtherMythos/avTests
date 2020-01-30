@@ -14,4 +14,30 @@
     <b id = "3">
         <jmp id = "#targetJmpBlock#"/>
     </b>
+
+    <b id = "4">
+        <actorChangeDirection a="0" d="10"/>
+    </b>
+    <b id = "5">
+        <actorChangeDirection a="$targetActor$" d="$targetActorDirection$"/>
+    </b>
+    <b id = "6">
+        <actorChangeDirection a="#targetActor#" d="#targetActorDirection#"/>
+    </b>
+    <b id = "7">
+        <actorChangeDirection a="30" d="#targetActorDirection#"/>
+    </b>
+
+    <b id = "8">
+        <actorMoveTo a="1" x="10" y="20" z="30"/>
+    </b>
+    <b id = "9">
+        <actorMoveTo a="$aId$" x="$x$" y="$y$" z="$z$"/>
+    </b>
+    <b id = "10">
+        <actorMoveTo a="#aId#" x="#x#" y="#y#" z="#z#"/>
+    </b>
+    <b id = "11">
+        <actorMoveTo a="$aId$" x="#x#" y="$y$" z="#z#"/>
+    </b>
 </Dialog_Script>
