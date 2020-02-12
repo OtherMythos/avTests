@@ -14,16 +14,16 @@ function update(){
         _registry.set("targetSleep", 1000);
         _dialogSystem.executeCompiledDialog(dialog, 0);
         _dialogSystem.update();
-        ::startTime <- time();
+        ::startTime <- _time();
         stage++;
     }
     if(stage == 1){
         if(::currentString != ""){
             print("second");
             _registry.set("targetSleep", 2000);
-            _test.assertEqual( 1, (time() - ::startTime) );
+            _test.assertEqual( 1, (_time() - ::startTime) );
             ::currentString = "";
-            ::startTime <- time();
+            ::startTime <- _time();
             _dialogSystem.unblock();
             stage++;
         }
@@ -31,18 +31,18 @@ function update(){
     if(stage == 2){
         if(::currentString != ""){
             print("third");
-            _test.assertEqual( 2, (time() - ::startTime) );
+            _test.assertEqual( 2, (_time() - ::startTime) );
 
             //The final sleep tag is just a constant, so should not use variables.
             ::currentString = "";
-            ::startTime <- time();
+            ::startTime <- _time();
             _dialogSystem.unblock();
             stage++;
         }
     }
     if(stage == 3){
         if(::currentString != ""){
-            _test.assertEqual( 2, (time() - ::startTime) );
+            _test.assertEqual( 2, (_time() - ::startTime) );
 
             _test.endTest();
         }

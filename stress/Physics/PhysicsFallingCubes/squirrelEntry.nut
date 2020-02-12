@@ -6,7 +6,7 @@ function start(){
 
     //number of cubes in a single axis.
     ::numCubes <- 8;
-    ::startTime <- time();
+    ::startTime <- _time();
 
     ::cubeShape <- _physics.getCubeShape(1, 1, 1);
     ::meshesContainer <- [];
@@ -56,7 +56,7 @@ function teardownScene(){
 }
 
 function update(){
-    local timeDiff = time() - ::startTime;
+    local timeDiff = _time() - ::startTime;
     if(timeDiff >= 1 && timeDiff < 20){
         //After 1 second create everything
         setupScene();
@@ -64,7 +64,7 @@ function update(){
     if(timeDiff >= 20){
         //Start again.
         teardownScene();
-        startTime = time()
+        startTime = _time()
     }
 
 }
