@@ -1,0 +1,8 @@
+<Dialog_Script>
+    <script path = "res://dialog/script.nut" id = "0"/>
+
+    <b id = "0">
+        <ts>first</ts>
+        <ts>second</ts>
+    </b>
+</Dialog_Script>
