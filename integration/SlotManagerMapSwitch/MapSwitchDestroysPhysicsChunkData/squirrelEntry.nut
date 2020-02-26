@@ -1,7 +1,7 @@
 //A test to check that physics chunk data is correctly destroyed when switching maps.
 
 function start(){
-    dofile(_settings.getDataDirectory() + "/../../../Resources/scripts/physicsScripts.nut");
+    _doFile("res://../../../Resources/scripts/physicsScripts.nut");
 
     ::stage <- 0;
 

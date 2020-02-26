@@ -1,7 +1,7 @@
 //Checks that the rigid body of a tracked entity is destroyed, while the rigid body of an untracked entity is left as is.
 
 function start(){
-    dofile(_settings.getDataDirectory() + "/../../../Resources/scripts/physicsScripts.nut");
+    _doFile("res://../../../Resources/scripts/physicsScripts.nut");
 
     ::stage <- 0;
 

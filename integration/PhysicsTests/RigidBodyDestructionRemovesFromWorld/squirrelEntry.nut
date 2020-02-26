@@ -1,7 +1,7 @@
 //A test to check that rigid bodies are removed from the world if all references to them are destroyed.
 
 function start(){
-    dofile(_settings.getDataDirectory() + "/../../../Resources/scripts/physicsScripts.nut");
+    _doFile("res://../../../Resources/scripts/physicsScripts.nut");
 
     ::stage <- 0;
 

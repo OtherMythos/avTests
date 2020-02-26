@@ -1,7 +1,7 @@
 //A test to check that physics chunks are shifted when an origin change happens.
 
 function start(){
-    dofile(_settings.getDataDirectory() + "/../../../Resources/scripts/physicsScripts.nut");
+    _doFile("res://../../../Resources/scripts/physicsScripts.nut");
 
     _world.createWorld();
     _world.setPlayerLoadRadius(1);
