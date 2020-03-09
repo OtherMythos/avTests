@@ -1,8 +1,27 @@
 <Dialog_Script>
-    <script path = "res://dialog/script.nut" id = "0"/>
+    <script path = "res://testScript.nut" id = "0"/>
+    <script path = "res://testScriptSecond.nut" id = "1"/>
 
     <b id = "0">
-        <ts>first</ts>
-        <ts>second</ts>
+        <script id = "0" func = "first" />
+    </b>
+
+    <b id = "1">
+        <script id = "0" func = "second" />
+    </b>
+
+    <b id = "2">
+        <script id = "0" func = "countFirst" />
+        <script id = "0" func = "countSecond" />
+    </b>
+
+    <b id = "3">
+        <script id = "1" func = "first" />
+        <script id = "1" func = "second" />
+    </b>
+
+    <b id = "4">
+        <script id = "0" func = "printFirst" />
+        <script id = "1" func = "printSecond" />
     </b>
 </Dialog_Script>
