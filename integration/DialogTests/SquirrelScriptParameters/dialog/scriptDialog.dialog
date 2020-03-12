@@ -1,0 +1,9 @@
+<Dialog_Script>
+    <script path = "res://testScript.nut" id = "0"/>
+
+    <b id = "0">
+        <script id = "0" func = "first" v1="10"/>
+        <script id = "0" func = "second" v1="10" v2="20" v3="30" v4="40"/>
+        <script id = "0" func = "third" v1="10.12" v2="20" v3="someValue" v4="false"/>
+    </b>
+</Dialog_Script>
