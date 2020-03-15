@@ -20,3 +20,36 @@ function third(a, b, c, d){
     _test.assertEqual(c, "someValue");
     _test.assertEqual(d, false);
 }
+
+function vFirst(a, b, c, d){
+    _test.assertEqual(typeof a, "integer");
+    _test.assertEqual(typeof b, "float");
+    _test.assertEqual(typeof c, "bool");
+    _test.assertEqual(typeof d, "string");
+
+    _test.assertEqual(a, 10);
+    _test.assertEqual(b, 12.45);
+    _test.assertEqual(c, false);
+    _test.assertEqual(d, "a string");
+}
+
+function vSecond(a, b, c, d){
+    _test.assertEqual(typeof a, "integer");
+    _test.assertEqual(typeof b, "float");
+    _test.assertEqual(typeof c, "bool");
+    _test.assertEqual(typeof d, "string");
+
+    _test.assertEqual(a, 20);
+    _test.assertEqual(b, 45.12);
+    _test.assertEqual(c, true);
+    _test.assertEqual(d, "local string");
+}
+
+function vThird(a, b, c, d){
+    //A mix of both constants and variables.
+
+    _test.assertEqual(a, 10); //global variable
+    _test.assertEqual(b, 20); //constant
+    _test.assertEqual(c, true); //local variable
+    _test.assertEqual(d, 35.2); //constant
+}

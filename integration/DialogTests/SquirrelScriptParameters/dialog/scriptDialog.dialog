@@ -5,5 +5,10 @@
         <script id = "0" func = "first" v1="10"/>
         <script id = "0" func = "second" v1="10" v2="20" v3="30" v4="40"/>
         <script id = "0" func = "third" v1="10.12" v2="20" v3="someValue" v4="false"/>
+
+        <script id = "0" func = "vFirst" v1="$globalInt$" v2="$globalFloat$" v3="$globalBool$" v4="$globalString$"/>
+        <script id = "0" func = "vSecond" v1="#localInt#" v2="#localFloat#" v3="#localBool#" v4="#localString#"/>
+
+        <script id = "0" func = "vThird" v1="$globalInt$" v2="20" v3="#localBool#" v4="35.2"/>
     </b>
 </Dialog_Script>
