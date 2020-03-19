@@ -1,0 +1,10 @@
+<Dialog_Script>
+    <script id = "0" path="res://dialogChecks.nut"/>
+
+    <b id = "0">
+        <set id="missingInt" v="10"/>
+        <set id="missingFloat" v="10.1234"/>
+        <set id="missingBool" v="false"/>
+        <set id="missingString" v="someValue"/>
+    </b>
+</Dialog_Script>
