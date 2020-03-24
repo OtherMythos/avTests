@@ -82,6 +82,26 @@ function start(){
         _test.assertEqual(0.0, _input.getAxisActionY(secondHandle));
         _test.assertEqual(0.0, _input.getAxisActionX(thirdHandle));
         _test.assertEqual(0.0, _input.getAxisActionY(thirdHandle));
+
+        _test.input.sendAxisAction(firstHandle, 30.0, true);
+        _test.assertEqual(30.0, _input.getAxisActionX(firstHandle));
+        _test.assertEqual(20.123, _input.getAxisActionY(firstHandle));
+
+        local count = 0.0;
+        foreach(i in [firstHandle, secondHandle, thirdHandle]){
+            _test.input.sendAxisAction(i, count, true);
+            count += 5.0;
+            _test.input.sendAxisAction(i, count, false);
+            count += 5.0;
+        }
+
+        count = 0.0;
+        foreach(i in [firstHandle, secondHandle, thirdHandle]){
+            _test.assertEqual(count, _input.getAxisActionX(i));
+            count += 5.0;
+            _test.assertEqual(count, _input.getAxisActionY(i));
+            count += 5.0;
+        }
     }
 
     //Trigger
@@ -90,8 +110,19 @@ function start(){
         local secondHandle = _input.getTriggerActionHandle("secondTrigger");
         local thirdHandle = _input.getTriggerActionHandle("thirdTrigger");
 
-        local val = _input.getTriggerAction(firstHandle);
-        print(val)
+        _test.assertEqual(_input.getTriggerAction(firstHandle), 0.0);
+        _test.input.sendTriggerAction(firstHandle, 20.0);
+        _test.assertEqual(_input.getTriggerAction(firstHandle), 20.0);
+
+        _test.input.sendTriggerAction(secondHandle, 30.0);
+        _test.assertEqual(_input.getTriggerAction(firstHandle), 20.0);
+        _test.assertEqual(_input.getTriggerAction(secondHandle), 30.0);
+        _test.assertEqual(_input.getTriggerAction(thirdHandle), 0.0);
+
+        _test.input.sendTriggerAction(thirdHandle, 40.0);
+        _test.assertEqual(_input.getTriggerAction(firstHandle), 20.0);
+        _test.assertEqual(_input.getTriggerAction(secondHandle), 30.0);
+        _test.assertEqual(_input.getTriggerAction(thirdHandle), 40.0);
     }
 
     _test.endTest();
