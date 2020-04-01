@@ -31,58 +31,58 @@ function start(){
     _input.mapKeyboardInputAxis(50, 51, 52, 53, ::FirstStick);
 
     { //Buttons
-        _test.assertFalse(_input.getButtonAction(::FirstButton));
-        _test.assertFalse(_input.getButtonAction(::SecondButton));
+        _test.assertFalse(_input.getButtonAction(::FirstButton, _KEYBOARD_INPUT_DEVICE));
+        _test.assertFalse(_input.getButtonAction(::SecondButton, _KEYBOARD_INPUT_DEVICE));
 
         _test.input.sendKeyboardKeyPress(0, true);
-        _test.assertTrue(_input.getButtonAction(::FirstButton));
-        _test.assertFalse(_input.getButtonAction(::SecondButton));
+        _test.assertTrue(_input.getButtonAction(::FirstButton, _KEYBOARD_INPUT_DEVICE));
+        _test.assertFalse(_input.getButtonAction(::SecondButton, _KEYBOARD_INPUT_DEVICE));
 
         _test.input.sendKeyboardKeyPress(10, true);
-        _test.assertTrue(_input.getButtonAction(::FirstButton));
-        _test.assertTrue(_input.getButtonAction(::SecondButton));
+        _test.assertTrue(_input.getButtonAction(::FirstButton, _KEYBOARD_INPUT_DEVICE));
+        _test.assertTrue(_input.getButtonAction(::SecondButton, _KEYBOARD_INPUT_DEVICE));
 
         _test.input.sendKeyboardKeyPress(0, false);
         _test.input.sendKeyboardKeyPress(10, false);
-        _test.assertFalse(_input.getButtonAction(::FirstButton));
-        _test.assertFalse(_input.getButtonAction(::SecondButton));
+        _test.assertFalse(_input.getButtonAction(::FirstButton, _KEYBOARD_INPUT_DEVICE));
+        _test.assertFalse(_input.getButtonAction(::SecondButton, _KEYBOARD_INPUT_DEVICE));
     }
 
     { //Triggers
-        _test.assertEqual(_input.getTriggerAction(::FirstTrigger), 0.0);
+        _test.assertEqual(_input.getTriggerAction(::FirstTrigger, _KEYBOARD_INPUT_DEVICE), 0.0);
 
         _test.input.sendKeyboardKeyPress(20, true);
-        _test.assertEqual(_input.getTriggerAction(::FirstTrigger), 1.0);
+        _test.assertEqual(_input.getTriggerAction(::FirstTrigger, _KEYBOARD_INPUT_DEVICE), 1.0);
 
         _test.input.sendKeyboardKeyPress(20, false);
-        _test.assertEqual(_input.getTriggerAction(::FirstTrigger), 0.0);
+        _test.assertEqual(_input.getTriggerAction(::FirstTrigger, _KEYBOARD_INPUT_DEVICE), 0.0);
     }
 
     { //Axises
-        _test.assertEqual(_input.getAxisActionX(::FirstStick), 0.0);
-        _test.assertEqual(_input.getAxisActionY(::FirstStick), 0.0);
+        _test.assertEqual(_input.getAxisActionX(::FirstStick, _KEYBOARD_INPUT_DEVICE), 0.0);
+        _test.assertEqual(_input.getAxisActionY(::FirstStick, _KEYBOARD_INPUT_DEVICE), 0.0);
 
         _test.input.sendKeyboardKeyPress(50, true);
-        _test.assertEqual(_input.getAxisActionX(::FirstStick), 1.0);
-        _test.assertEqual(_input.getAxisActionY(::FirstStick), 0.0);
+        _test.assertEqual(_input.getAxisActionX(::FirstStick, _KEYBOARD_INPUT_DEVICE), 1.0);
+        _test.assertEqual(_input.getAxisActionY(::FirstStick, _KEYBOARD_INPUT_DEVICE), 0.0);
         _test.input.sendKeyboardKeyPress(50, false);
-        _test.assertEqual(_input.getAxisActionX(::FirstStick), 0.0);
-        _test.assertEqual(_input.getAxisActionY(::FirstStick), 0.0);
+        _test.assertEqual(_input.getAxisActionX(::FirstStick, _KEYBOARD_INPUT_DEVICE), 0.0);
+        _test.assertEqual(_input.getAxisActionY(::FirstStick, _KEYBOARD_INPUT_DEVICE), 0.0);
 
         _test.input.sendKeyboardKeyPress(52, true);
-        _test.assertEqual(_input.getAxisActionX(::FirstStick), -1.0);
-        _test.assertEqual(_input.getAxisActionY(::FirstStick), 0.0);
+        _test.assertEqual(_input.getAxisActionX(::FirstStick, _KEYBOARD_INPUT_DEVICE), -1.0);
+        _test.assertEqual(_input.getAxisActionY(::FirstStick, _KEYBOARD_INPUT_DEVICE), 0.0);
 
         _test.input.sendKeyboardKeyPress(53, true);
-        _test.assertEqual(_input.getAxisActionX(::FirstStick), -1.0);
-        _test.assertEqual(_input.getAxisActionY(::FirstStick), -1.0);
+        _test.assertEqual(_input.getAxisActionX(::FirstStick, _KEYBOARD_INPUT_DEVICE), -1.0);
+        _test.assertEqual(_input.getAxisActionY(::FirstStick, _KEYBOARD_INPUT_DEVICE), -1.0);
         _test.input.sendKeyboardKeyPress(52, false);
         _test.input.sendKeyboardKeyPress(53, false);
 
         _test.input.sendKeyboardKeyPress(50, true);
         _test.input.sendKeyboardKeyPress(51, true);
-        _test.assertEqual(_input.getAxisActionY(::FirstStick), 1.0);
-        _test.assertEqual(_input.getAxisActionY(::FirstStick), 1.0);
+        _test.assertEqual(_input.getAxisActionY(::FirstStick, _KEYBOARD_INPUT_DEVICE), 1.0);
+        _test.assertEqual(_input.getAxisActionY(::FirstStick, _KEYBOARD_INPUT_DEVICE), 1.0);
     }
 
     _test.endTest();
