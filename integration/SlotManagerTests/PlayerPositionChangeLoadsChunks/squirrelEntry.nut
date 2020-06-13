@@ -20,7 +20,7 @@ function start(){
 function update(){
     _world.setPlayerPosition(currentPosition);
     local absPos = currentPosition.toVector3();
-    _camera.setPosition(absPos[0], absPos[1] + 100, absPos[2] + 100);
+    _camera.setPosition(absPos.x, absPos.y + 100, absPos.z + 100);
 
     local loadedSlots = _test.slotManager.getChunkListSize();
     if(loadedSlots > 2){

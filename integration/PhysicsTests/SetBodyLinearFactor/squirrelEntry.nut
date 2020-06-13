@@ -16,7 +16,7 @@ function start(){
     ::body <- _physics.dynamics.createRigidBody(shape);
     mesh.attachRigidBody(body);
     //The linear factor means the shape can't roll when it otherwise would have.
-    body.setLinearFactor(0, 1, 0);
+    body.setLinearFactor(Vec3(0, 1, 0));
 
     ::floor <- _physics.dynamics.createRigidBody(shape,
         {"mass": 0, "origin": [1, -10, 0]} // x 1, slightly off so that it falls through.

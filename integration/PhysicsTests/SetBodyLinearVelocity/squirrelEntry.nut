@@ -23,7 +23,7 @@ function start(){
     _physics.dynamics.addBody(floor);
 
     //By setting the linear velocity the cube will miss the floor and continue to fall.
-    body.setLinearVelocity(10, 0, 0);
+    body.setLinearVelocity(Vec3(10, 0, 0));
 }
 
 function update(){

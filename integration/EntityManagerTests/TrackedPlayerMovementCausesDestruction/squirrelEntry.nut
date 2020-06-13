@@ -25,7 +25,7 @@ function update(){
     local absPos = pos.toVector3();
     //The tracking system separates areas of the map into chunks.
     //Each chunk in this test is 100 units. If the player radius is 50, that means the player needs to move 150 units before the chunk will be unloaded.
-    if(absPos[0] > 150){
+    if(absPos.x > 150){
         _test.assertFalse(e.valid());
         _test.assertEqual(0, _test.entityManager.getEntityCount());
         _test.assertEqual(0, _test.entityManager.getTrackedEntityCount());

@@ -53,6 +53,6 @@ function update(){
 
     _world.setPlayerPosition(playerPos);
     local pos = playerPos.toVector3();
-    _camera.setPosition(pos[0], pos[1] + 100, pos[2] + 100);
-    _camera.lookAt(pos[0], pos[1], pos[2]);
+    _camera.setPosition(pos.x, pos.y + 100, pos.z + 100);
+    _camera.lookAt(pos.x, pos.y, pos.z);
 }
