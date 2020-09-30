@@ -2,12 +2,14 @@
 
 function worldCreatedCallback(id, data){
     _test.assertEqual(id, _EVENT_WORLD_CREATED);
+    _test.assertEqual(data, null); //The data for certain events will be null.
     print("window resized event");
     ::worldCreatedCount++;
 }
 
 function worldDestroyedCallback(id, data){
     _test.assertEqual(id, _EVENT_WORLD_DESTROYED);
+    _test.assertEqual(data, null);
     print("Engine closed event");
     ::worldDestroyedCount++;
 }
