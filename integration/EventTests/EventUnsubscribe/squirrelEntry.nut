@@ -21,7 +21,7 @@ function update(){
     }
     else if(stage == 1){
         _test.assertEqual(::worldCreatedCount, 1);
-        _event.subscribe(_EVENT_WORLD_CREATED, null);
+        _event.unsubscribe(_EVENT_WORLD_CREATED);
         _world.destroyWorld();
         _world.createWorld();
         stage++;
