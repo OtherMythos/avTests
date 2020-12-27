@@ -12,6 +12,17 @@ function start(){
     _test.assertEqual(_test.entityManager.getLoadedCallbackScriptCount(), 0);
 
     _component.mesh.add(e, "ogrehead2.mesh");
+
+    {
+        local failed = false;
+        try{
+            _component.script.add(e, _settings.getDataDirectory() + "/somethingThatDoesntExist.nut");
+        }catch(e){
+            failed = true;
+        }
+        _test.assertTrue(failed);
+    }
+
     _component.script.add(e, _settings.getDataDirectory() + "/EntityScript.nut");
 
     _test.assertEqual(_test.entityManager.getLoadedCallbackScriptCount(), 1);

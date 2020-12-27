@@ -30,6 +30,11 @@ function start(){
         _test.assertEqual(ray.getPoint(10), Vec3(20, 10, 10));
     }
 
+    {
+        local ray = _camera.getCameraToViewportRay(0.5, 0.6);
+        print(ray.getOrigin());
+    }
+
 
     _test.endTest();
 }
