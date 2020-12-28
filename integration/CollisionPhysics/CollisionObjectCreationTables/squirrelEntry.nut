@@ -32,12 +32,6 @@ function start(){
             "path" : "res://squirrelEntry.nut",
             "func" : "nonsense"
         },
-        { //Testing closures, the script should do nothing if provided with something that isn't a closure.
-            "id" : 5,
-            "type" : _COLLISION_PLAYER,
-            "event" : _COLLISION_INSIDE,
-            "func" : count
-        },
         { //If the id is not provided, it should default to 0.
             "type" : _COLLISION_PLAYER,
             "event" : _COLLISION_INSIDE,
