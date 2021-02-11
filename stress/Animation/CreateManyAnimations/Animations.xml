@@ -1,0 +1,28 @@
+<AnimationSequence>
+    <data>
+        <targetNode type='SceneNode'/>
+    </data>
+    <animations>
+        <animPos repeat='false' end='160'>
+            <t type='transform' target='0'>
+                <k t='0' position='-10, -10, 0'/>
+                <k t='80' position='10, 10, 0'/>
+                <k t='160' position='0, 0, 0'/>
+            </t>
+        </animPos>
+        <animScale repeat='false' end='160'>
+            <t type='transform' target='0'>
+                <k t='0' scale='1, 1, 1'/>
+                <k t='80' scale='5, 5, 5'/>
+                <k t='160' scale='1, 1, 1'/>
+            </t>
+        </animScale>
+        <animOrientate repeat='false' end='160'>
+            <t type='transform' target='0'>
+                <k t='0' rot='0, 0, 0'/>
+                <k t='80' rot='0, 90, 0'/>
+                <k t='160' rot='0, 0, 0'/>
+            </t>
+        </animOrientate>
+    </animations>
+</AnimationSequence>

@@ -1,0 +1,21 @@
+<AnimationSequence>
+    <data>
+        <targetNode type='SceneNode'/>
+    </data>
+    <animations>
+        <animQuatRotate repeat='false' end='160'>
+            <t type='transform' target='0'>
+                <k t='0' quat='1, 0, 0, 0'/>
+                <k t='80' quat='1, 0, 1, 0'/>
+                <k t='160' quat='1, 0, 0, 0'/>
+            </t>
+        </animQuatRotate>
+        <animDegreeRotate repeat='false' end='160'>
+            <t type='transform' target='0'>
+                <k t='0' rot='0, 0, 0'/>
+                <k t='80' rot='0, -90, 0'/>
+                <k t='160' rot='0, 0, 0'/>
+            </t>
+        </animDegreeRotate>
+    </animations>
+</AnimationSequence>

@@ -1,0 +1,18 @@
+<AnimationSequence>
+    <data>
+        <targetNode type='pbsDatablock'/>
+    </data>
+    <animations>
+        <animDatablock repeat='true' end='360'>
+            <t type='pbsDiffuse' target='0'>
+                <k t='0' diffuseColour='0, 0, 0'/>
+                <k t='240' diffuseColour='0, 10, 0'/>
+                <k t='360' diffuseColour='0, 0, 0'/>
+            </t>
+            <t type='pbsDetailMap' target='0'>
+                <k t='0' target='0' offset='0, 0'/>
+                <k t='360' target='0' offset='1, 1'/>
+            </t>
+        </animDatablock>
+    </animations>
+</AnimationSequence>
