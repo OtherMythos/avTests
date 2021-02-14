@@ -39,6 +39,7 @@ function update(){
     }
     else if(stage == 2){
         stageCount++;
+        _test.assertFalse(::currentAnim.isRunning());
         if(stageCount >= 20){
             //Check it doesn't move after.
             stageCount = 0;
@@ -64,6 +65,7 @@ function update(){
     }
     else if(stage == 5){
         stageCount++;
+        _test.assertFalse(::currentAnim.isRunning());
         if(stageCount >= 20){
             stageCount = 0;
             stage++;
