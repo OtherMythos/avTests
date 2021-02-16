@@ -1,0 +1,25 @@
+<AnimationSequence>
+    <data>
+        <firstNode type='SceneNode'/>
+        <secondNode type='SceneNode'/>
+    </data>
+    <data>
+        <firstNode type='SceneNode'/>
+        <pbsBlock type='pbsDatablock'/>
+        <secondNode type='SceneNode'/>
+    </data>
+    <animations>
+        <first repeat='false' end='120' data='0'>
+            <t type='transform' target='0'>
+                <k t='0' position='-10, -10, 0'/>
+            </t>
+        </first>
+
+        <second repeat='false' end='120' data='1'>
+            <t type='transform' target='0'>
+                <k t='0' position='-10, -10, 0'/>
+            </t>
+        </second>
+
+    </animations>
+</AnimationSequence>
