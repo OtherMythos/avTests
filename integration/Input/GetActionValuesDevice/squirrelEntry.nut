@@ -28,37 +28,37 @@ function start(){
         local thirdHandle = _input.getButtonActionHandle("thirdButton");
 
         for(local i = 0; i < _MAX_INPUT_DEVICES; i++){
-            _test.assertFalse(_input.getButtonAction(firstHandle, i));
-            _test.assertFalse(_input.getButtonAction(secondHandle, i));
-            _test.assertFalse(_input.getButtonAction(thirdHandle, i));
+            _test.assertFalse(_input.getButtonAction(firstHandle, _INPUT_ANY, i));
+            _test.assertFalse(_input.getButtonAction(secondHandle, _INPUT_ANY, i));
+            _test.assertFalse(_input.getButtonAction(thirdHandle, _INPUT_ANY, i));
 
             _test.input.sendButtonAction(firstHandle, i, true);
-            _test.assertTrue(_input.getButtonAction(firstHandle, i));
+            _test.assertTrue(_input.getButtonAction(firstHandle, _INPUT_ANY, i));
             //Check the other ones haven't gone true.
-            _test.assertFalse(_input.getButtonAction(secondHandle, i));
-            _test.assertFalse(_input.getButtonAction(thirdHandle, i));
+            _test.assertFalse(_input.getButtonAction(secondHandle, _INPUT_ANY, i));
+            _test.assertFalse(_input.getButtonAction(thirdHandle, _INPUT_ANY, i));
 
             _test.input.sendButtonAction(secondHandle, i, true);
-            _test.assertTrue(_input.getButtonAction(firstHandle, i));
-            _test.assertTrue(_input.getButtonAction(secondHandle, i));
-            _test.assertFalse(_input.getButtonAction(thirdHandle, i));
+            _test.assertTrue(_input.getButtonAction(firstHandle, _INPUT_ANY, i));
+            _test.assertTrue(_input.getButtonAction(secondHandle, _INPUT_ANY, i));
+            _test.assertFalse(_input.getButtonAction(thirdHandle, _INPUT_ANY, i));
 
             _test.input.sendButtonAction(thirdHandle, i, true);
-            _test.assertTrue(_input.getButtonAction(firstHandle, i));
-            _test.assertTrue(_input.getButtonAction(secondHandle, i));
-            _test.assertTrue(_input.getButtonAction(thirdHandle, i));
+            _test.assertTrue(_input.getButtonAction(firstHandle, _INPUT_ANY, i));
+            _test.assertTrue(_input.getButtonAction(secondHandle, _INPUT_ANY, i));
+            _test.assertTrue(_input.getButtonAction(thirdHandle, _INPUT_ANY, i));
 
             _test.input.sendButtonAction(firstHandle, i, false);
-            _test.assertFalse(_input.getButtonAction(firstHandle, i));
-            _test.assertTrue(_input.getButtonAction(secondHandle, i));
-            _test.assertTrue(_input.getButtonAction(thirdHandle, i));
+            _test.assertFalse(_input.getButtonAction(firstHandle, _INPUT_ANY, i));
+            _test.assertTrue(_input.getButtonAction(secondHandle, _INPUT_ANY, i));
+            _test.assertTrue(_input.getButtonAction(thirdHandle, _INPUT_ANY, i));
 
             _test.input.sendButtonAction(secondHandle, i, false);
             _test.input.sendButtonAction(thirdHandle, i, false);
 
-            _test.assertFalse(_input.getButtonAction(firstHandle, i));
-            _test.assertFalse(_input.getButtonAction(secondHandle, i));
-            _test.assertFalse(_input.getButtonAction(thirdHandle, i));
+            _test.assertFalse(_input.getButtonAction(firstHandle, _INPUT_ANY, i));
+            _test.assertFalse(_input.getButtonAction(secondHandle, _INPUT_ANY, i));
+            _test.assertFalse(_input.getButtonAction(thirdHandle, _INPUT_ANY, i));
         }
     }
 
@@ -69,26 +69,26 @@ function start(){
         local thirdHandle = _input.getAxisActionHandle("thirdStick");
 
         for(local i = 0; i < _MAX_INPUT_DEVICES; i++){
-            _test.assertEqual(0.0, _input.getAxisActionX(firstHandle, i));
-            _test.assertEqual(0.0, _input.getAxisActionY(firstHandle, i));
-            _test.assertEqual(0.0, _input.getAxisActionX(secondHandle, i));
-            _test.assertEqual(0.0, _input.getAxisActionY(secondHandle, i));
-            _test.assertEqual(0.0, _input.getAxisActionX(thirdHandle, i));
-            _test.assertEqual(0.0, _input.getAxisActionY(thirdHandle, i));
+            _test.assertEqual(0.0, _input.getAxisActionX(firstHandle, _INPUT_ANY, i));
+            _test.assertEqual(0.0, _input.getAxisActionY(firstHandle, _INPUT_ANY, i));
+            _test.assertEqual(0.0, _input.getAxisActionX(secondHandle, _INPUT_ANY, i));
+            _test.assertEqual(0.0, _input.getAxisActionY(secondHandle, _INPUT_ANY, i));
+            _test.assertEqual(0.0, _input.getAxisActionX(thirdHandle, _INPUT_ANY, i));
+            _test.assertEqual(0.0, _input.getAxisActionY(thirdHandle, _INPUT_ANY, i));
 
             _test.input.sendAxisAction(firstHandle, 10.123, i, true);
             _test.input.sendAxisAction(firstHandle, 20.123, i, false);
 
-            _test.assertEqual(10.123, _input.getAxisActionX(firstHandle, i));
-            _test.assertEqual(20.123, _input.getAxisActionY(firstHandle, i));
-            _test.assertEqual(0.0, _input.getAxisActionX(secondHandle, i));
-            _test.assertEqual(0.0, _input.getAxisActionY(secondHandle, i));
-            _test.assertEqual(0.0, _input.getAxisActionX(thirdHandle, i));
-            _test.assertEqual(0.0, _input.getAxisActionY(thirdHandle, i));
+            _test.assertEqual(10.123, _input.getAxisActionX(firstHandle, _INPUT_ANY, i));
+            _test.assertEqual(20.123, _input.getAxisActionY(firstHandle, _INPUT_ANY, i));
+            _test.assertEqual(0.0, _input.getAxisActionX(secondHandle, _INPUT_ANY, i));
+            _test.assertEqual(0.0, _input.getAxisActionY(secondHandle, _INPUT_ANY, i));
+            _test.assertEqual(0.0, _input.getAxisActionX(thirdHandle, _INPUT_ANY, i));
+            _test.assertEqual(0.0, _input.getAxisActionY(thirdHandle, _INPUT_ANY, i));
 
             _test.input.sendAxisAction(firstHandle, 30.0, i, true);
-            _test.assertEqual(30.0, _input.getAxisActionX(firstHandle, i));
-            _test.assertEqual(20.123, _input.getAxisActionY(firstHandle, i));
+            _test.assertEqual(30.0, _input.getAxisActionX(firstHandle, _INPUT_ANY, i));
+            _test.assertEqual(20.123, _input.getAxisActionY(firstHandle, _INPUT_ANY, i));
 
             local count = 0.0;
             foreach(h in [firstHandle, secondHandle, thirdHandle]){
@@ -115,19 +115,19 @@ function start(){
         local thirdHandle = _input.getTriggerActionHandle("thirdTrigger");
 
         for(local i = 0; i < _MAX_INPUT_DEVICES; i++){
-            _test.assertEqual(_input.getTriggerAction(firstHandle, i), 0.0);
+            _test.assertEqual(_input.getTriggerAction(firstHandle, _INPUT_ANY, i), 0.0);
             _test.input.sendTriggerAction(firstHandle, i, 20.0);
-            _test.assertEqual(_input.getTriggerAction(firstHandle, i), 20.0);
+            _test.assertEqual(_input.getTriggerAction(firstHandle, _INPUT_ANY, i), 20.0);
 
             _test.input.sendTriggerAction(secondHandle, i, 30.0);
-            _test.assertEqual(_input.getTriggerAction(firstHandle, i), 20.0);
-            _test.assertEqual(_input.getTriggerAction(secondHandle, i), 30.0);
-            _test.assertEqual(_input.getTriggerAction(thirdHandle, i), 0.0);
+            _test.assertEqual(_input.getTriggerAction(firstHandle, _INPUT_ANY, i), 20.0);
+            _test.assertEqual(_input.getTriggerAction(secondHandle, _INPUT_ANY, i), 30.0);
+            _test.assertEqual(_input.getTriggerAction(thirdHandle, _INPUT_ANY, i), 0.0);
 
             _test.input.sendTriggerAction(thirdHandle, i, 40.0);
-            _test.assertEqual(_input.getTriggerAction(firstHandle, i), 20.0);
-            _test.assertEqual(_input.getTriggerAction(secondHandle, i), 30.0);
-            _test.assertEqual(_input.getTriggerAction(thirdHandle, i), 40.0);
+            _test.assertEqual(_input.getTriggerAction(firstHandle, _INPUT_ANY, i), 20.0);
+            _test.assertEqual(_input.getTriggerAction(secondHandle, _INPUT_ANY, i), 30.0);
+            _test.assertEqual(_input.getTriggerAction(thirdHandle, _INPUT_ANY, i), 40.0);
         }
     }
 

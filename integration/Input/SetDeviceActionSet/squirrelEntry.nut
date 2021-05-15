@@ -57,50 +57,50 @@ function start(){
     _input.mapControllerInput(0, SecondStick);
 
     { //Buttons
-        _test.assertFalse(_input.getButtonAction(FirstButton, 0));
-        _test.assertFalse(_input.getButtonAction(SecondButton, 0));
+        _test.assertFalse(_input.getButtonAction(FirstButton, _INPUT_ANY, 0));
+        _test.assertFalse(_input.getButtonAction(SecondButton, _INPUT_ANY, 0));
 
         //0 - device 0, 2 - button input, 1 - button 1, value 1.0 (anything higher than 0 with a button is interpreted as a press).
         _test.input.sendControllerInput(0, 2, 1, 1.0);
-        _test.assertTrue(_input.getButtonAction(FirstButton, 0));
-        _test.assertFalse(_input.getButtonAction(SecondButton, 0));
+        _test.assertTrue(_input.getButtonAction(FirstButton, _INPUT_ANY, 0));
+        _test.assertFalse(_input.getButtonAction(SecondButton, _INPUT_ANY, 0));
 
         //Changing the action set means this controller should send the secondButton now when pressing button 1.
         _input.setActionSetForDevice(0, actionSetSecond);
         _test.input.sendControllerInput(0, 2, 1, 1.0);
-        _test.assertTrue(_input.getButtonAction(SecondButton, 0));
+        _test.assertTrue(_input.getButtonAction(SecondButton, _INPUT_ANY, 0));
     }
 
     { //Triggers
         _input.setActionSetForDevice(0, actionSetFirst);
 
-        _test.assertEqual(_input.getTriggerAction(FirstTrigger, 0), 0.0);
-        _test.assertEqual(_input.getTriggerAction(SecondTrigger, 0), 0.0);
+        _test.assertEqual(_input.getTriggerAction(FirstTrigger, _INPUT_ANY, 0), 0.0);
+        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _INPUT_ANY, 0), 0.0);
 
         _test.input.sendControllerInput(0, 1, 1, 1.0);
-        _test.assertEqual(_input.getTriggerAction(FirstTrigger, 0), 1.0);
-        _test.assertEqual(_input.getTriggerAction(SecondTrigger, 0), 0.0);
+        _test.assertEqual(_input.getTriggerAction(FirstTrigger, _INPUT_ANY, 0), 1.0);
+        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _INPUT_ANY, 0), 0.0);
 
         //Changing the action set means this controller should send the secondButton now when pressing button 1.
         _input.setActionSetForDevice(0, actionSetSecond);
         _test.input.sendControllerInput(0, 1, 1, 1.0);
-        _test.assertEqual(_input.getTriggerAction(SecondTrigger, 0), 1.0);
+        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _INPUT_ANY, 0), 1.0);
     }
 
     { //Axises
         _input.setActionSetForDevice(0, actionSetFirst);
 
-        _test.assertEqual(_input.getAxisActionX(FirstStick, 0), 0.0);
-        _test.assertEqual(_input.getAxisActionX(SecondStick, 0), 0.0);
+        _test.assertEqual(_input.getAxisActionX(FirstStick, _INPUT_ANY, 0), 0.0);
+        _test.assertEqual(_input.getAxisActionX(SecondStick, _INPUT_ANY, 0), 0.0);
 
         _test.input.sendControllerInput(0, 0, 0, 1.0);
-        _test.assertEqual(_input.getAxisActionX(FirstStick, 0), 1.0);
-        _test.assertEqual(_input.getAxisActionX(SecondStick, 0), 0.0);
+        _test.assertEqual(_input.getAxisActionX(FirstStick, _INPUT_ANY, 0), 1.0);
+        _test.assertEqual(_input.getAxisActionX(SecondStick, _INPUT_ANY, 0), 0.0);
 
 
         _input.setActionSetForDevice(0, actionSetSecond);
         _test.input.sendControllerInput(0, 0, 0, 1.0);
-        _test.assertEqual(_input.getAxisActionX(SecondStick, 0), 1.0);
+        _test.assertEqual(_input.getAxisActionX(SecondStick, _INPUT_ANY, 0), 1.0);
     }
 
     _test.endTest();

@@ -55,62 +55,62 @@ function start(){
     _input.mapKeyboardInputAxis(50, 51, 52, 53, SecondStick);
 
     { //Buttons
-        _test.assertFalse(_input.getButtonAction(FirstButton, 0));
-        _test.assertFalse(_input.getButtonAction(SecondButton, 0));
+        _test.assertFalse(_input.getButtonAction(FirstButton, _INPUT_ANY, 0));
+        _test.assertFalse(_input.getButtonAction(SecondButton, _INPUT_ANY, 0));
 
         _test.input.sendKeyboardKeyPress(0, true);
-        _test.assertTrue(_input.getButtonAction(FirstButton, _KEYBOARD_INPUT_DEVICE));
-        _test.assertFalse(_input.getButtonAction(SecondButton, _KEYBOARD_INPUT_DEVICE));
+        _test.assertTrue(_input.getButtonAction(FirstButton, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE));
+        _test.assertFalse(_input.getButtonAction(SecondButton, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE));
 
         //Changing the action set means the keyboard should send the secondButton now when pressing button 1.
         _input.setActionSetForDevice(_KEYBOARD_INPUT_DEVICE, actionSetSecond);
         _test.input.sendKeyboardKeyPress(0, true);
-        _test.assertTrue(_input.getButtonAction(SecondButton, _KEYBOARD_INPUT_DEVICE));
+        _test.assertTrue(_input.getButtonAction(SecondButton, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE));
     }
 
     { //Triggers
         _input.setActionSetForDevice(_KEYBOARD_INPUT_DEVICE, actionSetFirst);
 
-        _test.assertEqual(_input.getTriggerAction(FirstTrigger, 0), 0.0);
-        _test.assertEqual(_input.getTriggerAction(SecondTrigger, 0), 0.0);
+        _test.assertEqual(_input.getTriggerAction(FirstTrigger, _INPUT_ANY, 0), 0.0);
+        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _INPUT_ANY, 0), 0.0);
 
         _test.input.sendKeyboardKeyPress(20, true);
-        _test.assertEqual(_input.getTriggerAction(FirstTrigger, _KEYBOARD_INPUT_DEVICE), 1.0);
-        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _KEYBOARD_INPUT_DEVICE), 0.0);
+        _test.assertEqual(_input.getTriggerAction(FirstTrigger, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 1.0);
+        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 0.0);
 
         _input.setActionSetForDevice(_KEYBOARD_INPUT_DEVICE, actionSetSecond);
         _test.input.sendKeyboardKeyPress(20, true);
-        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _KEYBOARD_INPUT_DEVICE), 1.0);
+        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 1.0);
     }
 
     { //Axises
         _input.setActionSetForDevice(_KEYBOARD_INPUT_DEVICE, actionSetFirst);
 
-        _test.assertEqual(_input.getAxisActionX(FirstStick, _KEYBOARD_INPUT_DEVICE), 0.0);
-        _test.assertEqual(_input.getAxisActionX(SecondStick, _KEYBOARD_INPUT_DEVICE), 0.0);
+        _test.assertEqual(_input.getAxisActionX(FirstStick, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 0.0);
+        _test.assertEqual(_input.getAxisActionX(SecondStick, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 0.0);
 
         _test.input.sendKeyboardKeyPress(50, true);
-        _test.assertEqual(_input.getAxisActionX(FirstStick, _KEYBOARD_INPUT_DEVICE), 1.0);
-        _test.assertEqual(_input.getAxisActionX(SecondStick, _KEYBOARD_INPUT_DEVICE), 0.0);
+        _test.assertEqual(_input.getAxisActionX(FirstStick, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 1.0);
+        _test.assertEqual(_input.getAxisActionX(SecondStick, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 0.0);
 
 
         _input.setActionSetForDevice(_KEYBOARD_INPUT_DEVICE, actionSetSecond);
         _test.input.sendKeyboardKeyPress(50, true);
-        _test.assertEqual(_input.getAxisActionX(SecondStick, _KEYBOARD_INPUT_DEVICE), 1.0);
+        _test.assertEqual(_input.getAxisActionX(SecondStick, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 1.0);
 
 
         //Check the y.
         _input.setActionSetForDevice(_KEYBOARD_INPUT_DEVICE, actionSetFirst);
-        _test.assertEqual(_input.getAxisActionY(FirstStick, _KEYBOARD_INPUT_DEVICE), 0.0);
-        _test.assertEqual(_input.getAxisActionY(SecondStick, _KEYBOARD_INPUT_DEVICE), 0.0);
+        _test.assertEqual(_input.getAxisActionY(FirstStick, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 0.0);
+        _test.assertEqual(_input.getAxisActionY(SecondStick, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 0.0);
 
         _test.input.sendKeyboardKeyPress(51, true);
-        _test.assertEqual(_input.getAxisActionY(FirstStick, _KEYBOARD_INPUT_DEVICE), 1.0);
-        _test.assertEqual(_input.getAxisActionY(SecondStick, _KEYBOARD_INPUT_DEVICE), 0.0);
+        _test.assertEqual(_input.getAxisActionY(FirstStick, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 1.0);
+        _test.assertEqual(_input.getAxisActionY(SecondStick, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 0.0);
 
         _input.setActionSetForDevice(_KEYBOARD_INPUT_DEVICE, actionSetSecond);
         _test.input.sendKeyboardKeyPress(51, true);
-        _test.assertEqual(_input.getAxisActionY(SecondStick, _KEYBOARD_INPUT_DEVICE), 1.0);
+        _test.assertEqual(_input.getAxisActionY(SecondStick, _INPUT_ANY, _KEYBOARD_INPUT_DEVICE), 1.0);
     }
 
     _test.endTest();
