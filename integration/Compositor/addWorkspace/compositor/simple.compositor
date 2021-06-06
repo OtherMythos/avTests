@@ -1,0 +1,15 @@
+compositor_node testWorkspaceNode
+{
+    in 0 renderwindow
+    target renderwindow
+    {
+        pass clear
+        {
+            colour_value 1 0 0 1
+        }
+    }
+}
+workspace testWorkspace
+{
+    connect_output testWorkspaceNode 0
+}
