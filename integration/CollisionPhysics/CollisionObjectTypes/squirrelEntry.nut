@@ -2,7 +2,7 @@
 
 function start(){
     ::objects <- [];
-    ::values <- array(5, false);
+    ::valueThings <- array(5, false);
     ::expected <- [true, true, false, true, false];
     _world.createWorld();
 
@@ -19,7 +19,7 @@ function start(){
 
     local cubeShape = _physics.getCubeShape(1, 1, 1);
 
-    local values = [
+    local valueTypes = [
         [_COLLISION_PLAYER, _COLLISION_PLAYER],
         [_COLLISION_PLAYER | _COLLISION_ENEMY | _COLLISION_OBJECT | _COLLISION_USER_3 | _COLLISION_USER_4 | _COLLISION_USER_5 | _COLLISION_USER_6, _COLLISION_PLAYER],
         [_COLLISION_PLAYER, _COLLISION_ENEMY],
@@ -27,7 +27,7 @@ function start(){
         //Everything, but without the player.
         [_COLLISION_ENEMY | _COLLISION_OBJECT | _COLLISION_USER_3 | _COLLISION_USER_4 | _COLLISION_USER_5 | _COLLISION_USER_6, _COLLISION_PLAYER],
     ];
-    foreach(c,i in values){
+    foreach(c,i in valueTypes){
         initialTable.id = c;
         initialTable.type = i[0];
 
@@ -52,13 +52,13 @@ function start(){
 }
 
 function functionCallback(id, eventType){
-    ::values[id] = true;
+    ::valueThings[id] = true;
 }
 
 function update(){
     local allTrue = true;
-    for(local i = 0; i < values.len(); i++){
-        if(values[i] != expected[i]){
+    for(local i = 0; i < valueThings.len(); i++){
+        if(valueThings[i] != expected[i]){
             allTrue = false;
             break;
         }
