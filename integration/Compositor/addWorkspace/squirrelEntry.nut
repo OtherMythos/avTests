@@ -8,6 +8,14 @@ function start(){
     local renderTexture = _window.getRenderTexture();
     print(renderTexture.getWidth());
     _compositor.addWorkspace([renderTexture], camera, "testWorkspace", true);
+
+
+    local failed = false;
+    try{
+        _compositor.addWorkspace([false, true, 10], camera, "testWorkspace", true);
+    }catch(e){
+        failed = true;
+    }
 }
 
 function update(){
