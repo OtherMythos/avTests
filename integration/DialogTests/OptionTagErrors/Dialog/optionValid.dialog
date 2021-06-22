@@ -1,0 +1,7 @@
+<Dialog_Script>
+    <b id = "0">
+        <option>
+            <ts id="1">Some text.</ts>
+        </option>
+    </b>
+</Dialog_Script>

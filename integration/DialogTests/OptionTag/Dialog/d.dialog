@@ -1,0 +1,24 @@
+<Dialog_Script>
+    <b id = "0">
+        <option>
+            <ts id="1">first</ts>
+            <ts id="2">second</ts>
+            <ts id="3">third</ts>
+            <ts id="4">fourth</ts>
+        </option>
+    </b>
+    <b id = "1">
+        <option>
+            <ts id="$firstBlock$">firstReg</ts>
+            <ts id="$secondBlock$">secondReg</ts>
+            <ts id="$thirdBlock$">thirdReg</ts>
+            <ts id="$fourthBlock$">fourthReg</ts>
+        </option>
+    </b>
+    <b id = "2">
+        <ts>Block 2</ts>
+    </b>
+    <b id = "10">
+        <ts>Block 10</ts>
+    </b>
+</Dialog_Script>
