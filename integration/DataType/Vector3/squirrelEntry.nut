@@ -174,5 +174,12 @@ function start(){
         _test.assertEqual(newVec.z, 10);
     }
 
+    { //Empty vector
+        local newVec = Vec3();
+        _test.assertEqual(newVec.x, 0);
+        _test.assertEqual(newVec.y, 0);
+        _test.assertEqual(newVec.z, 0);
+    }
+
     _test.endTest();
 }
