@@ -41,5 +41,36 @@ function start(){
         _test.assertEqual(quat.w, -40);
     }
 
+    { //Empty constructor
+        local quat = Quat();
+        _test.assertEqual(quat.x, 0);
+        _test.assertEqual(quat.y, 0);
+        _test.assertEqual(quat.z, 0);
+        _test.assertEqual(quat.w, 1);
+    }
+
+    //Invalid parameters
+    {
+        local things = [
+            function() { Quat("hello") },
+            function() { Quat(10, "hello") },
+            function() { Quat(10, 10, 10, 10, "text") },
+            function() { Quat(false, 10, 10, 10, 10) },
+            function() { Quat(10) },
+        ]
+
+        foreach(c,i in things){
+            local failed = false;
+            try{
+                i();
+            }catch(e){
+                failed = true;
+            }
+            _test.assertTrue(failed);
+            print("Success " + c);
+        }
+    }
+
+
     _test.endTest();
 }
