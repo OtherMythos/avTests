@@ -22,31 +22,24 @@ function start(){
     _camera.setPosition(0, 0, -30);
     _camera.lookAt(0, 0, 0);
 
+    ::createdRay <- _camera.getCameraToViewportRay(0.5, 0.5);
+    print(::createdRay.getOrigin());
 
-    //_test.endTest();
+    //Reposition the camera to make things more obvious.
+    _camera.setPosition(0, 30, -30);
+    _camera.lookAt(0, 0, 0);
 }
 
-function update(){
+function sceneSafeUpdate(){
 
     if(stage == 0){
-        //Defer the ray creation to make sure the window is the correct size.
-        ::createdRay <- _camera.getCameraToViewportRay(0.5, 0.5);
-        print(::createdRay.getOrigin());
-
-        //Reposition the camera to make things more obvious.
-        _camera.setPosition(0, 30, -30);
-        _camera.lookAt(0, 0, 0);
-
-        stage++;
-    }
-    else if(stage == 1){
         //As the mask is 0 nothing should be found, so should return null.
         local foundPos = _scene.testRayForSlot(::createdRay, 0);
         _test.assertEqual(null, foundPos);
 
         stage++;
     }
-    else if(stage == 2){
+    else if(stage == 1){
         //Check all the objects.
         local foundPos = _scene.testRayForSlot(::createdRay, 0xFFFFFFFF);
         _test.assertNotEqual(null, foundPos);
@@ -54,7 +47,7 @@ function update(){
 
         stage++;
     }
-    else if(stage == 3){
+    else if(stage == 2){
         //Check the one furthest away from the camera.
         local foundPos = _scene.testRayForSlot(::createdRay, 1 << 6);
         _test.assertNotEqual(null, foundPos);
@@ -63,7 +56,7 @@ function update(){
 
         stage++;
     }
-    else if(stage == 4){
+    else if(stage == 3){
         _test.endTest();
     }
 
