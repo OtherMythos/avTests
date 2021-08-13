@@ -1,0 +1,16 @@
+<Dialog_Script>
+    <script id="@SCRIPT_ID@" path="@SCRIPT_PATH@"/>
+
+    <b id = "0">
+        <set id="@TARGET_INT_VAR@" v="@INT_VALUE@"/>
+        <set id="@TARGET_FLOAT_VAR@" v="@FLOAT_VALUE@"/>
+        <set id="@TARGET_BOOL_VAR@" v="@BOOL_VALUE@"/>
+        <set id="@TARGET_STRING_VAR@" v="@STRING_VALUE@"/>
+
+        <jmp id="@TARGET_BLOCK@"/>
+    </b>
+
+    <b id = "1">
+        <script id="@SCRIPT_ID@" func="@TARGET_FUNCTION@" v1="@INT_VALUE@" v2="@FLOAT_VALUE@" v3="@BOOL_VALUE@" v4="@STRING_VALUE@"/>
+    </b>
+</Dialog_Script>
