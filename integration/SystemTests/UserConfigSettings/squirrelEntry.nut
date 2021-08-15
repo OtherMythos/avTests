@@ -25,5 +25,11 @@ function start(){
     local secondSectionInt = _settings.getUserSetting("SecondSectionInt");
     _test.assertEqual(secondSectionInt, 300);
 
+    //Check invalid values weren't loaded.
+    local ignoredValue = _settings.getUserSetting("#IgnoredValue");
+    _test.assertEqual(ignoredValue, null);
+    ignoredValue = _settings.getUserSetting("#IgnoredOther");
+    _test.assertEqual(ignoredValue, null);
+
     _test.endTest();
 }
