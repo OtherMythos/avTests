@@ -1,0 +1,16 @@
+<Dialog_Script>
+    <b id = "0">
+        <ts>starting</ts>
+        <jmp id="-1"/>
+        <ts>Should not be printed</ts>
+    </b>
+
+    <b id = "1">
+        <ts>starting options</ts>
+        <option>
+            <ts id="-1">first</ts>
+            <ts id="0">second</ts>
+        </option>
+        <ts>Should not be printed</ts>
+    </b>
+</Dialog_Script>
