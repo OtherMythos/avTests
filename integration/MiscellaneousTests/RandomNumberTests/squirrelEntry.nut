@@ -27,5 +27,13 @@ function start(){
         _test.assertTrue(retVal <= -5 && retVal >= -10);
     }
 
+    print("index of array");
+    local targetArray = array(100, null);
+    for(local i = 0; i < 500; i++){
+        local retVal = _random.randIndex(targetArray);
+        print(retVal);
+        _test.assertTrue(retVal <= targetArray.len());
+    }
+
     _test.endTest();
 }
