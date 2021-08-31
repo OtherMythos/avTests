@@ -28,11 +28,21 @@ function start(){
     }
 
     print("index of array");
-    local targetArray = array(100, null);
+    //Give it a small number to stress it out.
+    local targetArray = array(10, null);
     for(local i = 0; i < 500; i++){
         local retVal = _random.randIndex(targetArray);
         print(retVal);
-        _test.assertTrue(retVal <= targetArray.len());
+        _test.assertNotEqual(retVal, targetArray.len());
+        _test.assertTrue(retVal < targetArray.len());
+    }
+    //Make sure it works with a min and max of 0-0
+    local targetArray = array(1, null);
+    for(local i = 0; i < 100; i++){
+        local retVal = _random.randIndex(targetArray);
+        print(retVal)
+        _test.assertNotEqual(retVal, targetArray.len());
+        _test.assertTrue(retVal < targetArray.len());
     }
 
     _test.endTest();
