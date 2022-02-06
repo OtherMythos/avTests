@@ -1,0 +1,15 @@
+{
+    "boolVal": false,
+    "boolTrueVal": true,
+    "stringVal": "something",
+    "floatVal": 10.12,
+    "intVal": 10,
+    "arrayVal": [20, 30],
+    "objectVal":{
+        "first": 10,
+        "second": 20.10,
+        "third": false,
+        "fourth": null,
+        "fifth": { "other": "value", "second": ["hello", "again"] }
+    }
+}
