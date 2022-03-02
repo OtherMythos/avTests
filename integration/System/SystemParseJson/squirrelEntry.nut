@@ -2,13 +2,25 @@
 
 function start(){
 
-    local failed = false;
-    try{
-        local value = _system.readJSONAsTable("res://res/brokenJSON.json");
-    }catch(e){
-        failed = true;
+    {
+        local failed = false;
+        try{
+            local value = _system.readJSONAsTable("res://res/brokenJSON.json");
+        }catch(e){
+            failed = true;
+        }
+        _test.assertTrue(failed);
     }
-    _test.assertTrue(failed);
+    //Check it fails for an invalid file.
+    {
+        local failed = false;
+        try{
+            local value = _system.readJSONAsTable("res://res/doesntExist.json");
+        }catch(e){
+            failed = true;
+        }
+        _test.assertTrue(failed);
+    }
 
     local value = _system.readJSONAsTable("res://res/fullJSON.json");
     _test.assertEqual(typeof(value), "table");
