@@ -85,7 +85,12 @@ function start(){
     _system.writeJsonAsFile("/tmp/writtenThing.json", data, false, true, 10, 20);
     checkWrittenJSON();
     local num = getNumLinesInFile("/tmp/writtenThing.json");
-    print(num);
+    _test.assertTrue(num == 1);
+
+    //Pretty print and expect there to be more than 1 line.
+    _system.writeJsonAsFile("/tmp/writtenThing.json", data, true, true, 10, 20);
+    checkWrittenJSON();
+    local num = getNumLinesInFile("/tmp/writtenThing.json");
     _test.assertTrue(num > 1);
 
     _test.endTest();
