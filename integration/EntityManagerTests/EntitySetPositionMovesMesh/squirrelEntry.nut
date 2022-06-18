@@ -10,27 +10,21 @@ function update(){
     local mesh = _mesh.create("cube");
     _component.mesh.add(e, mesh);
 
-    local currentPos = mesh.getPositionRaw();
+    local currentPos = mesh.getPositionVec3();
     //Should be at the origin.
-    _test.assertEqual(currentPos[0], 0);
-    _test.assertEqual(currentPos[1], 0);
-    _test.assertEqual(currentPos[2], 0);
+    _test.assertEqual(currentPos, Vec3(0, 0, 0));
 
     //Move the entity.
     e.setPosition(SlotPosition(1, 1));
 
-    currentPos = mesh.getPositionRaw();
+    currentPos = mesh.getPositionVec3();
     //Now should be at one chunk in (50x50)
-    _test.assertEqual(currentPos[0], 50);
-    _test.assertEqual(currentPos[1], 0);
-    _test.assertEqual(currentPos[2], 50);
+    _test.assertEqual(currentPos, Vec3(50, 0, 50));
 
     e.setPosition(SlotPosition(-2, -2));
 
-    currentPos = mesh.getPositionRaw();
-    _test.assertEqual(currentPos[0], -100);
-    _test.assertEqual(currentPos[1], 0);
-    _test.assertEqual(currentPos[2], -100);
+    currentPos = mesh.getPositionVec3();
+    _test.assertEqual(currentPos, Vec3(-100, 0, -100));
 
 
     _test.endTest();
