@@ -1,4 +1,10 @@
-//A test to check that action sets can be set using the squirrel api.
+/**
+This test checks for a bug I found regarding the any device and action set switching.
+The any device counts how many have a single button down.
+If I had a button down, switched action sets, then released the button, the button would target the wrong data entry in the any device.
+This lead to a scenario where old data wasn't being cleared up and the system would roll over the counter as it tried to take away from the 0 value of the new handle.
+The solution was to check if that button is mapped or not and then copy the data from the old handle to the new.
+*/
 
 function start(){
 
@@ -43,7 +49,7 @@ function start(){
 
     //When you've got multiple action sets, this should be set upfront.
     //There's no guarantee of which ids will be assigned to which sets. Therefore the default numeric id might not match the intended set.
-    _input.setActionSetForDevice(0, actionSetFirst);
+    _input.setActionSetForDevice(_ANY_INPUT_DEVICE, actionSetFirst);
 
 
     //The engine determines from the handle which set it's a part of. So mapping to the same input is fine.
@@ -67,41 +73,35 @@ function start(){
 
         //Changing the action set means this controller should send the secondButton now when pressing button 1.
         _input.setActionSetForDevice(0, actionSetSecond);
-        _test.input.sendControllerInput(0, 2, 1, 1.0);
-        _test.assertTrue(_input.getButtonAction(SecondButton, _INPUT_ANY, 0));
+        //The action with the button held down should switch without me having to do anything.
+        _test.assertFalse(_input.getButtonAction(FirstButton, _INPUT_ANY, _ANY_INPUT_DEVICE));
+        _test.assertTrue(_input.getButtonAction(SecondButton, _INPUT_ANY, _ANY_INPUT_DEVICE));
+
+        //Release the key should cause the target input to switch.
+        _test.input.sendControllerInput(0, 2, 1, 0.0);
+
+        _test.assertFalse(_input.getButtonAction(FirstButton, _INPUT_ANY, _ANY_INPUT_DEVICE));
+        _test.assertFalse(_input.getButtonAction(SecondButton, _INPUT_ANY, _ANY_INPUT_DEVICE));
     }
 
-    { //Triggers
-        _input.setActionSetForDevice(0, actionSetFirst);
+    //Set it back, all the numbers should be reset.
+    _input.setActionSetForDevice(0, actionSetFirst);
 
-        _test.assertEqual(_input.getTriggerAction(FirstTrigger, _INPUT_ANY, 0), 0.0);
-        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _INPUT_ANY, 0), 0.0);
+    { //Any device
+        _test.assertFalse(_input.getButtonAction(FirstButton, _INPUT_ANY, _ANY_INPUT_DEVICE));
+        _test.assertFalse(_input.getButtonAction(SecondButton, _INPUT_ANY, _ANY_INPUT_DEVICE));
 
-        _test.input.sendControllerInput(0, 1, 1, 1.0);
-        _test.assertEqual(_input.getTriggerAction(FirstTrigger, _INPUT_ANY, 0), 1.0);
-        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _INPUT_ANY, 0), 0.0);
+        //0 - device 0, 2 - button input, 1 - button 1, value 1.0 (anything higher than 0 with a button is interpreted as a press).
+        _test.input.sendControllerInput(0, 2, 1, 1.0);
+        _test.assertTrue(_input.getButtonAction(FirstButton, _INPUT_ANY, _ANY_INPUT_DEVICE));
+        _test.assertFalse(_input.getButtonAction(SecondButton, _INPUT_ANY, _ANY_INPUT_DEVICE));
 
         //Changing the action set means this controller should send the secondButton now when pressing button 1.
         _input.setActionSetForDevice(0, actionSetSecond);
-        _test.input.sendControllerInput(0, 1, 1, 1.0);
-        _test.assertEqual(_input.getTriggerAction(SecondTrigger, _INPUT_ANY, 0), 1.0);
-    }
-
-    { //Axises
-        _input.setActionSetForDevice(0, actionSetFirst);
-
-        _test.assertEqual(_input.getAxisActionX(FirstStick, _INPUT_ANY, 0), 0.0);
-        _test.assertEqual(_input.getAxisActionX(SecondStick, _INPUT_ANY, 0), 0.0);
-
-        _test.input.sendControllerInput(0, 0, 0, 1.0);
-        _test.assertEqual(_input.getAxisActionX(FirstStick, _INPUT_ANY, 0), 1.0);
-        _test.assertEqual(_input.getAxisActionX(SecondStick, _INPUT_ANY, 0), 0.0);
-
-
-        _input.setActionSetForDevice(0, actionSetSecond);
-        _test.input.sendControllerInput(0, 0, 0, 1.0);
-        _test.assertEqual(_input.getAxisActionX(SecondStick, _INPUT_ANY, 0), 1.0);
+        //Release the key should cause the target input to switch.
+        _test.input.sendControllerInput(0, 2, 1, 0.0);
     }
 
     _test.endTest();
+}
 }

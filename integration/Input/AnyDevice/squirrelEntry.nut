@@ -37,38 +37,38 @@ function start(){
         _test.assertFalse(_input.getButtonAction(::FirstButton));
         _test.assertFalse(_input.getButtonAction(::SecondButton));
 
-        _test.input.sendKeyboardKeyPress(0, true);
+        _input.sendKeyboardKeyPress(0, true);
         _test.assertTrue(_input.getButtonAction(::FirstButton));
         _test.assertFalse(_input.getButtonAction(::SecondButton));
 
-        _test.input.sendKeyboardKeyPress(10, true);
+        _input.sendKeyboardKeyPress(10, true);
         _test.assertTrue(_input.getButtonAction(::FirstButton));
         _test.assertTrue(_input.getButtonAction(::SecondButton));
 
-        _test.input.sendKeyboardKeyPress(0, false);
-        _test.input.sendKeyboardKeyPress(10, false);
+        _input.sendKeyboardKeyPress(0, false);
+        _input.sendKeyboardKeyPress(10, false);
         _test.assertFalse(_input.getButtonAction(::FirstButton));
         _test.assertFalse(_input.getButtonAction(::SecondButton));
 
         //Now do a combination of buttons of different devices, and keys.
-        _test.input.sendKeyboardKeyPress(0, true);
+        _input.sendKeyboardKeyPress(0, true);
         _test.assertTrue(_input.getButtonAction(::FirstButton));
-        _test.input.sendButtonAction(::FirstButton, 0, true);
+        _input.sendButtonAction(::FirstButton, 0, true);
         _test.assertTrue(_input.getButtonAction(::FirstButton)); //Should still be true
-        _test.input.sendKeyboardKeyPress(0, false);
+        _input.sendKeyboardKeyPress(0, false);
         _test.assertTrue(_input.getButtonAction(::FirstButton)); //Release the key, should still be true as the other one is down.
-        _test.input.sendButtonAction(::FirstButton, 0, false);
+        _input.sendButtonAction(::FirstButton, 0, false);
         _test.assertFalse(_input.getButtonAction(::FirstButton)); //Now they're all released so should be false.
 
         //Go through all the controllers, setting the buttons, releasing them, checking as long as one is down it returns true.
         _test.assertFalse(_input.getButtonAction(::SecondButton));
         for(local i = 0; i < _MAX_INPUT_DEVICES; i++){
-            _test.input.sendButtonAction(::SecondButton, 0, true);
+            _input.sendButtonAction(::SecondButton, 0, true);
             _test.assertTrue(_input.getButtonAction(::SecondButton));
         }
         for(local i = 0; i < _MAX_INPUT_DEVICES; i++){
             _test.assertTrue(_input.getButtonAction(::SecondButton));
-            _test.input.sendButtonAction(::SecondButton, 0, false);
+            _input.sendButtonAction(::SecondButton, 0, false);
         }
         _test.assertFalse(_input.getButtonAction(::FirstButton)); //Now all the buttons are released, it should be false again.
 
@@ -78,9 +78,9 @@ function start(){
     { //Triggers
         _test.assertEqual(_input.getTriggerAction(::FirstTrigger), 0.0);
 
-        _test.input.sendKeyboardKeyPress(20, true);
+        _input.sendKeyboardKeyPress(20, true);
         _test.assertEqual(_input.getTriggerAction(::FirstTrigger), 1.0);
-        _test.input.sendTriggerAction(::FirstTrigger, 0, 0.5);
+        _input.sendTriggerAction(::FirstTrigger, 0, 0.5);
         _test.assertEqual(_input.getTriggerAction(::FirstTrigger), 0.5);
     }
 
@@ -88,25 +88,25 @@ function start(){
         _test.assertEqual(_input.getAxisActionX(::FirstStick), 0.0);
         _test.assertEqual(_input.getAxisActionY(::FirstStick), 0.0);
 
-        _test.input.sendKeyboardKeyPress(50, true);
+        _input.sendKeyboardKeyPress(50, true);
         _test.assertEqual(_input.getAxisActionX(::FirstStick), 1.0);
         _test.assertEqual(_input.getAxisActionY(::FirstStick), 0.0);
-        _test.input.sendKeyboardKeyPress(50, false);
+        _input.sendKeyboardKeyPress(50, false);
         _test.assertEqual(_input.getAxisActionX(::FirstStick), 0.0);
         _test.assertEqual(_input.getAxisActionY(::FirstStick), 0.0);
 
-        _test.input.sendKeyboardKeyPress(52, true);
+        _input.sendKeyboardKeyPress(52, true);
         _test.assertEqual(_input.getAxisActionX(::FirstStick), -1.0);
         _test.assertEqual(_input.getAxisActionY(::FirstStick), 0.0);
 
-        _test.input.sendKeyboardKeyPress(53, true);
+        _input.sendKeyboardKeyPress(53, true);
         _test.assertEqual(_input.getAxisActionX(::FirstStick), -1.0);
         _test.assertEqual(_input.getAxisActionY(::FirstStick), -1.0);
-        _test.input.sendKeyboardKeyPress(52, false);
-        _test.input.sendKeyboardKeyPress(53, false);
+        _input.sendKeyboardKeyPress(52, false);
+        _input.sendKeyboardKeyPress(53, false);
 
-        _test.input.sendKeyboardKeyPress(50, true);
-        _test.input.sendKeyboardKeyPress(51, true);
+        _input.sendKeyboardKeyPress(50, true);
+        _input.sendKeyboardKeyPress(51, true);
         _test.assertEqual(_input.getAxisActionY(::FirstStick), 1.0);
         _test.assertEqual(_input.getAxisActionY(::FirstStick), 1.0);
     }
