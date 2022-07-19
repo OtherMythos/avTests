@@ -1,0 +1,18 @@
+<AnimationSequence>
+    <data>
+        <firstNode type='SceneNode'/>
+        <secondNode type='SceneNode'/>
+    </data>
+    <animations>
+        <animMultiPos repeat='true' end='240'>
+            <t type='transform' target='0'>
+                <k t='0' position='-10, -10, 0'/>
+                <k t='240' position='0, 0, 0'/>
+            </t>
+            <t type='transform' target='1'>
+                <k t='0' position='10, 10, 0'/>
+                <k t='240' position='0, 0, 0'/>
+            </t>
+        </animMultiPos>
+    </animations>
+</AnimationSequence>
