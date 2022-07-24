@@ -76,8 +76,8 @@ function start(){
             _test.assertEqual(0.0, _input.getAxisActionX(thirdHandle, _INPUT_ANY, i));
             _test.assertEqual(0.0, _input.getAxisActionY(thirdHandle, _INPUT_ANY, i));
 
-            _input.sendAxisAction(firstHandle, 10.123, i, true);
-            _input.sendAxisAction(firstHandle, 20.123, i, false);
+            _input.sendAxisAction(firstHandle, i, 10.123, true);
+            _input.sendAxisAction(firstHandle, i, 20.123, false);
 
             _test.assertEqual(10.123, _input.getAxisActionX(firstHandle, _INPUT_ANY, i));
             _test.assertEqual(20.123, _input.getAxisActionY(firstHandle, _INPUT_ANY, i));
@@ -86,15 +86,15 @@ function start(){
             _test.assertEqual(0.0, _input.getAxisActionX(thirdHandle, _INPUT_ANY, i));
             _test.assertEqual(0.0, _input.getAxisActionY(thirdHandle, _INPUT_ANY, i));
 
-            _input.sendAxisAction(firstHandle, 30.0, i, true);
+            _input.sendAxisAction(firstHandle, i, 30.0, true);
             _test.assertEqual(30.0, _input.getAxisActionX(firstHandle, _INPUT_ANY, i));
             _test.assertEqual(20.123, _input.getAxisActionY(firstHandle, _INPUT_ANY, i));
 
             local count = 0.0;
             foreach(h in [firstHandle, secondHandle, thirdHandle]){
-                _input.sendAxisAction(h, count, i, true);
+                _input.sendAxisAction(h, i, count, true);
                 count += 5.0;
-                _input.sendAxisAction(h, count, i, false);
+                _input.sendAxisAction(h, i, count, false);
                 count += 5.0;
             }
 

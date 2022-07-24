@@ -8,7 +8,7 @@ function start(){
 
     local failed = false;
     try{
-        local texture = MovableTexture("cat1.jpg", "internal/test");
+        local texture = MovableTexture("cat1.jpg", "avInternal/test");
     }catch(e){
         failed = true;
     }
