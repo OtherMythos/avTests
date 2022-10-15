@@ -1,7 +1,7 @@
 //A test to check audio setup and the audio namespace.
 
 function start(){
-    local source = _audio.newSource("/Users/edward/Desktop/audioBite.wav");
+    local source = _audio.newSource("res://../../../Resources/Sounds/audioBite.wav");
     source.play();
 
     local audioBuf = source.getAudioBuffer();
