@@ -1,0 +1,55 @@
+fragment_program glitchEffect_ps_GLSL glsl
+{
+    source glitchEffect_ps.glsl
+}
+
+fragment_program glitchEffect_ps_VK glslvk
+{
+    source glitchEffect_ps.glsl
+}
+
+fragment_program glitchEffect_ps_HLSL hlsl
+{
+    source glitchEffect_ps.hlsl
+    target ps_5_0 ps_4_0 ps_4_0_level_9_1 ps_4_0_level_9_3
+    entry_point main
+}
+
+fragment_program glitchEffect_ps_Metal metal
+{
+    source glitchEffect_ps.metal
+    shader_reflection_pair_hint Ogre/Compositor/Quad_vs
+}
+
+fragment_program glitchEffect_ps unified
+{
+    delegate glitchEffect_ps_GLSL
+    delegate glitchEffect_ps_VK
+    delegate glitchEffect_ps_HLSL
+    delegate glitchEffect_ps_Metal
+}
+
+material Postprocess/glitchEffect
+{
+    technique
+    {
+        pass
+        {
+            depth_check off
+            depth_write off
+
+            cull_hardware none
+
+            vertex_program_ref Ogre/Compositor/Quad_vs
+            {
+            }
+
+            fragment_program_ref glitchEffect_ps
+            {
+
+                param_named_auto time_0_X time_0_x 120
+                param_named_auto sin_time_0_X sintime_0_x 120
+            }
+        }
+    }
+}
