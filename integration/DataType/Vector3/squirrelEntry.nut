@@ -1,4 +1,4 @@
-//A test which checks custom user settings appear in the setup file.
+//A test which checks vector3 objects.
 
 function start(){
 
@@ -179,6 +179,12 @@ function start(){
         _test.assertEqual(newVec.x, 0);
         _test.assertEqual(newVec.y, 0);
         _test.assertEqual(newVec.z, 0);
+    }
+
+    {
+        local newVec = Vec3(1, 2, 3);
+        local vec2 = newVec.xy();
+        _test.assertEqual(vec2, Vec2(1, 2));
     }
 
     _test.endTest();
