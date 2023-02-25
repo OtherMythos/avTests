@@ -71,6 +71,16 @@ function start(){
         }
     }
 
+    //copy
+    {
+        local first = Quat(10, 20, 30, 40);
+        local second = first.copy();
+        first.x = 1;
+
+        _test.assertFalse(first == second);
+        _test.assertEqual(first.x, 1);
+        _test.assertEqual(second.x, 10);
+    }
 
     _test.endTest();
 }

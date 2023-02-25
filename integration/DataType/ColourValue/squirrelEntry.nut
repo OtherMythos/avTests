@@ -202,5 +202,16 @@ function start(){
         _test.assertEqual(secondColour.tostring(), "ColourValue(1, 1, 1, 1)");
     }
 
+    //Copy
+    {
+        local first = ColourValue(1, 1, 1, 1);
+        local second = first.copy();
+        second.r = 0.5;
+
+        _test.assertFalse(first == second);
+        _test.assertEqual(second.r, 0.5);
+        _test.assertEqual(first.r, 1);
+    }
+
     _test.endTest();
 }

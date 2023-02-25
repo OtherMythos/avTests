@@ -159,5 +159,15 @@ function start(){
         _test.assertEqual(newVec.y, 0);
     }
 
+    { //Copy
+        local first = Vec2(10, 20);
+        local second = first.copy();
+        first.x = 30;
+
+        _test.assertFalse(first == second);
+        _test.assertEqual(first.x, 30);
+        _test.assertEqual(second.x, 10);
+    }
+
     _test.endTest();
 }

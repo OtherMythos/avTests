@@ -93,5 +93,16 @@ function start(){
         _test.assertEqual(first.z, 0);
     }
 
+    { //Copy
+        local first = SlotPosition(3, 4, 10, 20, 30);
+        local second = first.copy();
+        first.x = 100;
+
+        _test.assertFalse(first == second);
+        _test.assertEqual(first.x, 100);
+        _test.assertEqual(second.x, 10);
+    }
+
+
     _test.endTest();
 }

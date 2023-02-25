@@ -187,5 +187,15 @@ function start(){
         _test.assertEqual(vec2, Vec2(1, 2));
     }
 
+    { //Copy
+        local first = Vec3(10, 20, 30);
+        local second = first.copy();
+        first.x = 30;
+
+        _test.assertFalse(first == second);
+        _test.assertEqual(first.x, 30);
+        _test.assertEqual(second.x, 10);
+    }
+
     _test.endTest();
 }
