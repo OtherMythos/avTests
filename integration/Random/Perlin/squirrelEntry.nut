@@ -20,7 +20,7 @@ function start(){
     ::panels <- [];
     local width = 100;
     local height = 100;
-    local noise = _random.genPerlinNoise(width, height);
+    local noise = _random.genPerlinNoise(width, height, 0.1, 4);
 
     for(local y = 0; y < height; y++){
         for(local x = 0; x < width; x++){
@@ -30,7 +30,7 @@ function start(){
             if(y == 50 && x == 50){
                 //Check this value is always the same, as the value is seeded.
                 //Have to turn it into an integer to make the comparison work.
-                _test.assertEqual((floatVal * 100000).tointeger(), 50520);
+                _test.assertEqual((floatVal * 100000).tointeger(), 33750);
             }
         }
     }
