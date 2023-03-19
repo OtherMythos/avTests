@@ -213,5 +213,15 @@ function start(){
         _test.assertEqual(first.r, 1);
     }
 
+    //Not including the alpha channel.
+    {
+        local colour = ColourValue(1, 0, 1);
+
+        _test.assertEqual(colour.r, 1);
+        _test.assertEqual(colour.g, 0);
+        _test.assertEqual(colour.b, 1);
+        _test.assertEqual(colour.a, 1);
+    }
+
     _test.endTest();
 }
