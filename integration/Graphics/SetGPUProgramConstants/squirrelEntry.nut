@@ -56,9 +56,20 @@ function update(){
         ::prog.setNamedConstant("arrayLenFourFloat", b);
     }
     else if(stage == 7){
-        //Check a short blob fails.
+        //Check a short blob works fine.
         local b = blob(4*1);
         b.writen(::testVal, 'f');
+        ::prog.setNamedConstant("arrayLenFourFloat", b);
+
+    }
+    else if(stage == 8){
+        //Check a larger blob fails.
+        local b = blob(8*4);
+        b.writen(0.8, 'f');
+        b.writen(::testVal, 'f');
+        b.writen(0.3, 'f');
+        b.writen(1.0, 'f');
+        b.writen(0.5, 'f');
         local failed = false;
         try{
             ::prog.setNamedConstant("arrayLenFourFloat", b);
@@ -66,17 +77,6 @@ function update(){
             failed = true;
         }
         _test.assertTrue(failed);
-
-    }
-    else if(stage == 8){
-        //Check a larger blob works fine.
-        local b = blob(8*4);
-        b.writen(0.8, 'f');
-        b.writen(::testVal, 'f');
-        b.writen(0.3, 'f');
-        b.writen(1.0, 'f');
-        b.writen(0.5, 'f');
-        ::prog.setNamedConstant("arrayLenFourFloat", b);
     }
     else if(stage == 9){
         //integer blob.
