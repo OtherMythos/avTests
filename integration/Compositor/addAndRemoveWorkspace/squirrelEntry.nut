@@ -3,6 +3,7 @@
 function start(){
 
     local camera = _scene.createCamera("first");
+    _scene.getRootSceneNode().createChildSceneNode().attachObject(camera);
 
     local renderTexture = _window.getRenderTexture();
 
