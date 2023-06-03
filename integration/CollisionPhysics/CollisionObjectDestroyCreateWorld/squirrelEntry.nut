@@ -20,7 +20,6 @@ function functionCallback(id, eventType){
 
 function start(){
     ::stage <- 0;
-    ::stageCount <- 0;
     ::insideCount <- 0;
     ::enterCount <- 0;
     ::leaveCount <- 0;
@@ -51,18 +50,25 @@ function update(){
     }else if(stage == 1){
         if(insideCount >= 10) stage++;
     }else if(stage == 2){
+        _physics.collision[0].removeObject(::sender);
+        _physics.collision[0].removeObject(::receiver);
         _world.destroyWorld();
         stage++;
     }else if(stage == 3){
         //Ensure there is no gunk left over from the previous world.
         print("World created");
         _world.createWorld();
-        stageCount = 0;
         stage++;
+
+        insideCount = 0;
+        enterCount = 0;
+        leaveCount = 0;
+
+        _physics.collision[0].addObject(::sender);
+        _physics.collision[0].addObject(::receiver);
     }else if(stage == 4){
         //Wait a bit for something to happen.
-        stageCount++;
-        if(stageCount >= 20){
+        if(insideCount >= 20){
             stage++;
         }
     }else if(stage == 5){
