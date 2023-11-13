@@ -6,6 +6,7 @@ function start(){
         local datablock = _hlms.pbs.createDatablock("someDatablockName");
         local queryDatablock = _hlms.getDatablock("someDatablockName");
         _test.assertNotEqual(null, queryDatablock);
+        _test.assertEqual(datablock.getName(), queryDatablock.getName());
 
         _hlms.destroyDatablock("someDatablockName");
         queryDatablock = _hlms.getDatablock("someDatablockName");
@@ -15,6 +16,7 @@ function start(){
     {
         local datablock = _hlms.unlit.createDatablock("someDatablockName");
         local queryDatablock = _hlms.getDatablock("someDatablockName");
+        _test.assertEqual(datablock.getName(), queryDatablock.getName());
         _test.assertNotEqual(null, queryDatablock);
 
         _hlms.destroyDatablock("someDatablockName");
