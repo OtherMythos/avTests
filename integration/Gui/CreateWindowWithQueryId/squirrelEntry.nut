@@ -11,7 +11,7 @@ function start(){
     ];
 
     for(local i = 0; i < 5; i++){
-        _test.assertEqual(_test.gui.getNumWindows(), i);
+        _test.assertEqual(_gui.getNumWindows(), i);
 
         local win = _gui.createWindow(windowIds[i]);
         win.setPosition(600, 200);
@@ -21,13 +21,21 @@ function start(){
         windows.append(win);
     }
 
-    _test.assertEqual(_test.gui.getNumWindows(), 5);
+    _test.assertEqual(_gui.getNumWindows(), 5);
     //Check each window claims to have a query id present in the list.
     while(windowIds.len() > 0){
-        _test.assertTrue(windowIds.find(windows[0].getQueryName()) != null);
+        local queryId = windows[0].getQueryName();
+        _test.assertTrue(windowIds.find(queryId) != null);
+        _test.assertTrue(queryId == windowIds[0]);
         windowIds.remove(0);
         windows.remove(0);
     }
+
+    //Destroy all the remaining windows.
+    while(_gui.getNumWindows() != 0){
+        _gui.destroy(_gui.getWindowForIdx(0));
+    }
+    _test.assertEqual(_gui.getNumWindows(), 0);
 
     //Ensure child windows can also be given ids.
     //Create a window without any id.
@@ -41,6 +49,7 @@ function start(){
         if(win.getQueryName() == "childWindow") found = true;
     }
     _test.assertTrue(found);
+    _test.assertEqual(_gui.getNumWindows(), 3);
 
     _test.endTest();
 }
