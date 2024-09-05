@@ -26,13 +26,12 @@ function update(){
     local newSecondPos = secondNode.getPositionVec3();
 
     //Check the objects are moving.
-    _test.assertNotEqual(prevPosFirst, newFirstPos);
-    _test.assertNotEqual(prevPosSecond, newSecondPos);
+    _test.assertNotEqual(prevPosFirst.x, newFirstPos.x);
+    _test.assertNotEqual(prevPosSecond.x, newSecondPos.x);
 
     ::prevPosFirst = firstNode.getPositionVec3();
     ::prevPosSecond = secondNode.getPositionVec3();
 
-    print(newSecondPos.x);
     //They've animated enough.
     if(newSecondPos.x <= 1.0){
         _test.endTest();
