@@ -1,0 +1,16 @@
+<scene>
+    <empty>
+        <mesh name="Cube" mesh="cube" animIdx="0">
+            <position x="0.0" y="0.0" z="0.0" />
+            <scale x="2.0" y="2.0" z="2.0" />
+        </mesh>
+        <mesh name="cube" mesh="lineSphere" animIdx="1">
+            <position x="2.401364803314209" y="0.8049612045288086" z="6.003604412078857" />
+            <scale x="1.0" y="1.0" z="1.0" />
+        </mesh>
+        <mesh name="Cube.002" mesh="lineBox" animIdx="100">
+            <position x="-3.8922512531280518" y="2.8701298236846924" z="-5.7508087158203125" />
+            <scale x="1.0" y="1.0" z="1.0" />
+        </mesh>
+    </empty>
+</scene>
