@@ -24,6 +24,16 @@ function start(){
         _test.assertEqual(vec.y, 200);
     }
 
+    { //Parse string
+        local vec = Vec2("20, 30");
+        _test.assertEqual(vec.x, 20);
+        _test.assertEqual(vec.y, 30);
+
+        local vec = Vec2("345.1, 30.45");
+        _test.assertEqual(vec.x, 345.1);
+        _test.assertEqual(vec.y, 30.45);
+    }
+
     { //Unary minus.
         local vec = Vec2(10, 20);
         vec = -vec;
