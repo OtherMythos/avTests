@@ -26,6 +26,12 @@ function checkWrittenJSON(){
     _test.assertEqual(value["fourth"]["arrayInner"][0][1], 20);
     _test.assertEqual(value["fourth"]["arrayInner"][1][0], 30);
     _test.assertEqual(value["fourth"]["arrayInner"][1][1], 40);
+
+    _test.assertEqual(value["vals"][0]["first"], false);
+    _test.assertEqual(value["vals"][0]["second"], true);
+    _test.assertEqual(value["vals"][1]["first"], true);
+    _test.assertEqual(value["vals"][1]["second"], false);
+    _test.assertEqual(value["vals"][2], false);
 }
 
 function getNumLinesInFile(path){
@@ -55,7 +61,18 @@ function start(){
             "fifthTable": 10.123,
             "inner":{ "thing": false },
             "arrayInner": [[10, 20], [30, 40]]
-        }
+        },
+        "vals": [
+            {
+                "first": false,
+                "second": true
+            },
+            {
+                "first": true,
+                "second": false
+            },
+            false
+        ]
     };
     _system.writeJsonAsFile("/tmp/writtenThing.json", data);
 
