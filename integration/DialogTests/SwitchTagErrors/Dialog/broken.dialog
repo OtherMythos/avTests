@@ -1,0 +1,7 @@
+<Dialog_Script>
+    <b id = "0">
+        <switch>
+            <case id="1" test="false" />
+        <switch>
+    </b>
+</Dialog_Script>

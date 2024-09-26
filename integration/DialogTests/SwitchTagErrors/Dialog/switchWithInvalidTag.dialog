@@ -1,0 +1,7 @@
+<Dialog_Script>
+    <b id = "0">
+        <switch>
+            <ts id="something" />
+        </switch>
+    </b>
+</Dialog_Script>

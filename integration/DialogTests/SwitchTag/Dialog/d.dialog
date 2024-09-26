@@ -1,0 +1,50 @@
+<Dialog_Script>
+    <b id = "0">
+        <switch>
+            <case id="1" test="false" />
+            <case id="2" test="true" />
+            <case id="3" test="false" />
+            <case id="4" test="false" />
+        </switch>
+    </b>
+    <b id = "1">
+        <switch>
+            <case id="$firstBlock$" test="$testCaseFirst$" />
+            <case id="$secondBlock$" test="$testCaseSecond$" />
+            <case id="$thirdBlock$" test="$testCaseThird$" />
+            <case id="$fourthBlock$" test="$testCaseFourth$" />
+        </switch>
+    </b>
+
+    <b id="2">
+        <ts>testCase1</ts>
+    </b>
+    <b id="3">
+        <ts>testCase2</ts>
+    </b>
+    <b id="4">
+        <ts>testCase3</ts>
+    </b>
+
+    <!-- Check switches with less than the maximum entries. -->
+    <b id = "20">
+        <switch>
+            <case id="$firstBlock$" test="$testCaseFirst$" />
+            <case id="$secondBlock$" test="$testCaseSecond$" />
+        </switch>
+    </b>
+
+    <!-- Mix block with contants and variables -->
+    <b id = "30">
+        <switch>
+            <case id="2" test="$testCaseFirst$" />
+            <case id="3" test="$testCaseSecond$" />
+        </switch>
+    </b>
+    <b id = "31">
+        <switch>
+            <case id="$firstBlock$" test="false" />
+            <case id="$secondBlock$" test="true" />
+        </switch>
+    </b>
+</Dialog_Script>
