@@ -1,8 +1,8 @@
 //Check that collision worlds hold onto point ids until the collision end event is properly delivered.
 //If this does not happen destruction might conflict with newly created points.
 
-function start(){
-    local world = CollisionWorld(_COLLISION_WORLD_BRUTE_FORCE);
+function process(worldType){
+    local world = CollisionWorld(worldType);
 
     local addedPointSender = world.addCollisionPoint(10, 10, 1, 0xFF, _COLLISION_WORLD_ENTRY_SENDER);
     local addedPointReceiver = world.addCollisionPoint(10.5, 10, 1, 0xFF, _COLLISION_WORLD_ENTRY_RECEIVER);
@@ -41,6 +41,13 @@ function start(){
     //Now the system has had an update and the leave event delivered, the previous hole should be used.
     local otherNewPoint = world.addCollisionPoint(10.5, 10, 1, 0xFF, _COLLISION_WORLD_ENTRY_RECEIVER);
     _test.assertEqual(otherNewPoint, addedPointReceiver);
+}
+
+function start(){
+
+    foreach(i in [_COLLISION_WORLD_BRUTE_FORCE, _COLLISION_WORLD_OCTREE]){
+        process(i);
+    }
 
     _test.endTest();
 }

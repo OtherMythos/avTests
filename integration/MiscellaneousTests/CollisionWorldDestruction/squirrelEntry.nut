@@ -1,7 +1,7 @@
 //A test to check collision worlds are destroyed correctly.
 
-function start(){
-    local world = CollisionWorld(_COLLISION_WORLD_BRUTE_FORCE);
+function process(worldType){
+    local world = CollisionWorld(worldType);
 
     //Check neither points trigger.
     local addedPointFirst = world.addCollisionPoint(10, 10, 1, 0x1);
@@ -13,6 +13,15 @@ function start(){
     world = null;
 
     world = CollisionWorld(_COLLISION_WORLD_BRUTE_FORCE);
+
+    _test.endTest();
+}
+
+function start(){
+
+    foreach(i in [_COLLISION_WORLD_BRUTE_FORCE, _COLLISION_WORLD_OCTREE]){
+        process(i);
+    }
 
     _test.endTest();
 }

@@ -1,6 +1,6 @@
 //A test to check that Collision world senders and receivers work as expected.
 
-function start(){
+function process(worldType){
     local world = CollisionWorld(_COLLISION_WORLD_BRUTE_FORCE);
 
     //Check neither points trigger.
@@ -40,6 +40,15 @@ function start(){
 
     world.processCollision();
     _test.assertEqual(world.getNumCollisions(), 0);
+
+    _test.endTest();
+}
+
+function start(){
+
+    foreach(i in [_COLLISION_WORLD_BRUTE_FORCE, _COLLISION_WORLD_OCTREE]){
+        process(i);
+    }
 
     _test.endTest();
 }

@@ -1,7 +1,7 @@
 //A test to check that CollisionWorld objects can be created and used for the brute force method.
 
-function start(){
-    local world = CollisionWorld(_COLLISION_WORLD_BRUTE_FORCE);
+function process(worldType){
+    local world = CollisionWorld(worldType);
 
     //Check neither points trigger.
     local addedPointFirst = world.addCollisionPoint(10, 10, 1, 0x1);
@@ -26,6 +26,15 @@ function start(){
 
     world.processCollision();
     _test.assertEqual(world.getNumCollisions(), 1);
+
+    _test.endTest();
+}
+
+function start(){
+
+    foreach(i in [_COLLISION_WORLD_BRUTE_FORCE, _COLLISION_WORLD_OCTREE]){
+        process(i);
+    }
 
     _test.endTest();
 }
