@@ -20,7 +20,7 @@ function update(){
     ::mesh.setPosition(startPos);
     _test.assertEqual(::startPos, ::e.getPosition());
     print(startPos);
-    if(startPos.equals(destination)){
+    if(startPos == destination){
         _test.endTest();
     }
 }
