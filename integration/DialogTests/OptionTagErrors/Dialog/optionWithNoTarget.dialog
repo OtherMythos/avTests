@@ -1,7 +1,0 @@
-<Dialog_Script>
-    <b id = "0">
-        <option>
-            <ts>Some code without a target block.</ts>
-        </option>
-    </b>
-</Dialog_Script>

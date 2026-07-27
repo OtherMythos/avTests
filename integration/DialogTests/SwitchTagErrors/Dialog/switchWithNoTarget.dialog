@@ -1,8 +1,0 @@
-<Dialog_Script>
-    <b id = "0">
-        <switch>
-            <case test="$testCaseFirst$" />
-            <case test="$testCaseSecond$" />
-        </switch>
-    </b>
-</Dialog_Script>

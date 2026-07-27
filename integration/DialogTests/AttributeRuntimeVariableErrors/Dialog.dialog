@@ -1,5 +1,0 @@
-<Dialog_Script>
-    <b id = "0">
-        <jmp id = "$targetJmpBlock$"/>
-    </b>
-</Dialog_Script>
