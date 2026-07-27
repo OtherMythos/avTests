@@ -2,12 +2,11 @@
 //Check the script gets loaded and that callbacks are fired on this entity.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 100, 100);
     _camera.lookAt(0, 0, 0);
 
-    ::e <- _entity.create(SlotPosition());
+    ::e <- _entity.create(Vec3());
 
     _test.assertEqual(_test.entityManager.getLoadedCallbackScriptCount(), 0);
 

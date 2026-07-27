@@ -1,7 +1,6 @@
 //A test to check that movement from a rigid body component causes script callbacks.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 200);
     _camera.lookAt(0, 0, 0);
@@ -9,7 +8,7 @@ function start(){
     ::movementCount <- 0;
     ::stage <- 0;
 
-    local en = _entity.create(SlotPosition());
+    local en = _entity.create(Vec3());
 
     local shape = _physics.getCubeShape(1, 1, 1);
     ::body <- _physics.dynamics.createRigidBody(shape);

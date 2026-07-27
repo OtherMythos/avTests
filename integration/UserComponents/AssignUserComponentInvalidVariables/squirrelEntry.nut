@@ -1,9 +1,8 @@
 //A test to check that invalid and badly formed component definitions can be setup correctly.
 
 function start(){
-    _world.createWorld();
 
-    ::en <- _entity.create(SlotPosition());
+    ::en <- _entity.create(Vec3());
     local numComponents = _test.userComponents.getNumUserComponents();
     _test.assertEqual(numComponents, 4);
 

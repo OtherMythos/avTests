@@ -9,13 +9,11 @@ function start(){
 function update(){
 
     for(local i = 0; i < 5; i++){
-        _world.createWorld();
 
         //Try getting the shape when there is a world...
         first = _physics.getCapsuleShape(i, 2);
         _test.assertTrue(_test.physics.getShapeExists(2, i, 2, 0));
 
-        _world.destroyWorld();
 
         //As well as when there isn't.
         first = _physics.getCapsuleShape(i, 2);

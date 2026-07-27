@@ -18,9 +18,8 @@ enum BuffVariables{
 };
 
 function start(){
-    _world.createWorld();
 
-    ::en <- _entity.create(SlotPosition());
+    ::en <- _entity.create(Vec3());
 
     _component.user[Components.HEALTH].add(en);
     _component.user[Components.BUFFS].add(en);

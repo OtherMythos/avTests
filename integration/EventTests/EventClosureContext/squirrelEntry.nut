@@ -20,15 +20,12 @@ function start(){
 
 function update(){
     if(stage == 0){
-        _world.createWorld();
         stage++;
     }
     else if(stage == 1){
         _test.assertEqual(::worldCreatedCount, 1);
         //Ensure if the table is deleted, the callback can still be called correctly.
         ::targetTable = null;
-        _world.destroyWorld();
-        _world.createWorld();
         stage++;
     }
     else if(stage == 2){

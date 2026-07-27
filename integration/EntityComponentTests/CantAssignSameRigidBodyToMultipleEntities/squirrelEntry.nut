@@ -1,12 +1,11 @@
 //A test to check that the same rigid body can't be assigned to multiple entities.
 
 function start(){
-    _world.createWorld();
 }
 
 function update(){
-    local en1 = _entity.create(SlotPosition());
-    local en2 = _entity.create(SlotPosition());
+    local en1 = _entity.create(Vec3());
+    local en2 = _entity.create(Vec3());
 
     local shape = _physics.getCubeShape(1, 1, 1);
     local body = _physics.dynamics.createRigidBody(shape);

@@ -4,7 +4,6 @@ function start(){
     ::count <- 0;
     ::emptyCount <- 0;
     ::objects <- [];
-    _world.createWorld();
 
     local tableData = [
         { //Testing closures, the script should do nothing if provided with something that isn't a closure.

@@ -1,7 +1,6 @@
 //A test to switch the attachment of a rigid body between a mesh and an entity.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 200);
     _camera.lookAt(0, 0, 0);
@@ -9,7 +8,7 @@ function start(){
     ::stage <- 0;
     ::finalCount <- 0;
 
-    ::en <- _entity.create(SlotPosition());
+    ::en <- _entity.create(Vec3());
     _component.mesh.add(en, "ogrehead2.mesh");
 
     local shape = _physics.getCubeShape(1, 1, 1);

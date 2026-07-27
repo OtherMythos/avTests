@@ -23,7 +23,6 @@ function start(){
     ::insideCount <- 0;
     ::enterCount <- 0;
     ::leaveCount <- 0;
-    _world.createWorld();
 
     local initialTable = {
         "func" : functionCallback,

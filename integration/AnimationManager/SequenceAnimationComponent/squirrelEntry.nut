@@ -1,7 +1,6 @@
 //Check animations can be stored in animation components.
 
 function start(){
-    _world.createWorld();
 
     ::stage <- 0;
     _camera.setPosition(0, 0, 50);
@@ -17,7 +16,7 @@ function start(){
     local animationInfo = _animation.createAnimationInfo([rootNode]);
     local firstAnim = _animation.createAnimation("animPos", animationInfo);
 
-    ::e <- _entity.create(SlotPosition());
+    ::e <- _entity.create(Vec3());
     _component.animation.add(e, firstAnim);
 }
 

@@ -1,5 +1,5 @@
 function stationary(currentPos){
-    if( !("stationaryPreviousPos" in getroottable()) ) ::stationaryPreviousPos <- SlotPosition();
+    if( !("stationaryPreviousPos" in getroottable()) ) ::stationaryPreviousPos <- Vec3();
     if( !("stationaryPreviousCount" in getroottable()) ) ::stationaryPreviousCount <- 0;
 
     if(currentPos.y < -50){

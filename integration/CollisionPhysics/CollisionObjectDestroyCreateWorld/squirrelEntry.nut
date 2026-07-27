@@ -23,19 +23,18 @@ function start(){
     ::insideCount <- 0;
     ::enterCount <- 0;
     ::leaveCount <- 0;
-    _world.createWorld();
 
-    local initialTable = {
+    ::initialTable <- {
         "func" : functionCallback,
         "id" : 1,
         "type" : _COLLISION_PLAYER,
         "event" : _COLLISION_INSIDE | _COLLISION_ENTER | _COLLISION_LEAVE
     };
-    local receiverInfo = {
+    ::receiverInfo <- {
         "type" : _COLLISION_PLAYER,
     };
 
-    local cubeShape = _physics.getCubeShape(1, 1, 1);
+    ::cubeShape <- _physics.getCubeShape(1, 1, 1);
 
     ::sender <- _physics.collision[0].createSender(initialTable, cubeShape);
     ::receiver <- _physics.collision[0].createReceiver(receiverInfo, cubeShape);
@@ -52,18 +51,18 @@ function update(){
     }else if(stage == 2){
         _physics.collision[0].removeObject(::sender);
         _physics.collision[0].removeObject(::receiver);
-        _world.destroyWorld();
         stage++;
     }else if(stage == 3){
         //Ensure there is no gunk left over from the previous world.
         print("World created");
-        _world.createWorld();
         stage++;
 
         insideCount = 0;
         enterCount = 0;
         leaveCount = 0;
 
+        ::sender <- _physics.collision[0].createSender(initialTable, cubeShape);
+        ::receiver <- _physics.collision[0].createReceiver(receiverInfo, cubeShape);
         _physics.collision[0].addObject(::sender);
         _physics.collision[0].addObject(::receiver);
     }else if(stage == 4){

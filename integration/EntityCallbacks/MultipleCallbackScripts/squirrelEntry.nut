@@ -1,13 +1,12 @@
 //Assign two scripts to two entities and check the scripts run their appropriate callbacks.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 100, 100);
     _camera.lookAt(0, 0, 0);
 
-    ::a <- _entity.create(SlotPosition());
-    ::b <- _entity.create(SlotPosition());
+    ::a <- _entity.create(Vec3());
+    ::b <- _entity.create(Vec3());
 
     local scripts = ["/EntityScript.nut", "/SecondScript.nut"];
     foreach(i,e in [a, b]){

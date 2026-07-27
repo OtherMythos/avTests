@@ -1,5 +1,4 @@
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 60, 120);
     _camera.lookAt(20, 0, 20);
@@ -63,12 +62,10 @@ function removeEntry(){
         //It's a different usecase that should be tested each time.
         if(count % 2 == 0){
             print("Destroying world first.")
-            _world.destroyWorld();
             meshesContainer.clear();
         }else{
             print("Clearing container first.")
             meshesContainer.clear();
-            _world.destroyWorld();
         }
 
     }
@@ -77,11 +74,10 @@ function removeEntry(){
 
 function update(){
 
-    if(_world.ready()){
+    if(true){
         createUnusedCube();
         createCubeShape();
         removeEntry();
     }else{
-        _world.createWorld();
     }
 }

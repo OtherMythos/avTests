@@ -23,10 +23,9 @@ enum ShortVariables{
 };
 
 function start(){
-    _world.createWorld();
 
     {
-        local en = _entity.create(SlotPosition());
+        local en = _entity.create(Vec3());
 
         //Check values can't be set if that entity doesn't have that component.
         local failed = false;
@@ -40,7 +39,7 @@ function start(){
     }
 
     {
-        local en = _entity.create(SlotPosition());
+        local en = _entity.create(Vec3());
 
         //Check values can't be set if that entity doesn't have that component.
         local failed = false;

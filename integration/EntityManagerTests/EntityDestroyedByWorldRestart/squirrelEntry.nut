@@ -2,19 +2,16 @@
 //When another world is created the entity should still be invalid.
 
 function start(){
-    _world.createWorld();
 }
 
 function update(){
-    local e = _entity.create(SlotPosition());
+    local e = _entity.create(Vec3());
 
     _test.assertEqual(1, _test.entityManager.getEntityCount());
     _test.assertTrue(e.valid());
 
-    _world.destroyWorld();
     _test.assertFalse(e.valid());
 
-    _world.createWorld();
     //Should still be false.
     _test.assertFalse(e.valid());
     _test.assertEqual(0, _test.entityManager.getEntityCount());

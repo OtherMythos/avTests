@@ -4,7 +4,6 @@ function start(){
     ::count <- 0;
     ::emptyCount <- 0;
     ::objects <- [];
-    _world.createWorld();
 
     local tableData = [
         { //No script information.
@@ -55,7 +54,6 @@ function start(){
         receiver.setPosition(pos);
         object.setPosition(pos);
 
-        //We need to keep track of it.
         objects.append(object);
         objects.append(receiver);
     }

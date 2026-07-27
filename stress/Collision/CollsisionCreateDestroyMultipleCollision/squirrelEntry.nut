@@ -5,7 +5,6 @@ function collisionFunction(){
 }
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 60, 120);
     _camera.lookAt(20, 0, 20);
@@ -36,9 +35,7 @@ function destroyCreateWorld(){
 
     if(!worldExists){
         //Destroy it.
-        _world.destroyWorld();
     }else{
-        _world.createWorld();
     }
 
     for(local i = 0; i < 20; i++){
@@ -66,7 +63,6 @@ function createSenderAndReceiver(){
     local targetContainer = ::worldContainers[targetWorld];
     targetContainer.append(danglingObject);
 
-    //We need to keep track of it.
     targetContainer.append(object);
     targetContainer.append(receiver);
 }

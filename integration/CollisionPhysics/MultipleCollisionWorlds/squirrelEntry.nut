@@ -25,7 +25,6 @@ function start(){
     ::emptyCount <- 0;
     ::objects <- [];
     ::worldCounts <- [0, 0, 0, 0];
-    _world.createWorld();
 
     local senderData = {
         "func": firstWorldCallback,
@@ -52,7 +51,6 @@ function start(){
 
         //Don't give them a position. All the objects are placed at the origin.
 
-        //We need to keep track of it.
         objects.append(object);
         objects.append(receiver);
     }

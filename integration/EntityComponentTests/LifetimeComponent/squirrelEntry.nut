@@ -1,10 +1,9 @@
 //A test to check that entities are destroyed when their lifetime is reached.
 
 function start(){
-    _world.createWorld();
 
-    ::en <- _entity.create(SlotPosition());
-    ::en2 <- _entity.create(SlotPosition());
+    ::en <- _entity.create(Vec3());
+    ::en2 <- _entity.create(Vec3());
     _component.lifetime.add(::en, 200);
     _component.lifetime.add(::en2, 200);
 

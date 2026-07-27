@@ -1,11 +1,10 @@
 //A test to check the returned binding type of a rigid body.
 
 function start(){
-    _world.createWorld();
 }
 
 function update(){
-    local en = _entity.create(SlotPosition());
+    local en = _entity.create(Vec3());
 
     local body = _physics.dynamics.createRigidBody(_physics.getCubeShape(1, 1, 1));
 

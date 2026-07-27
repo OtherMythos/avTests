@@ -16,14 +16,11 @@ function start(){
 
 function update(){
     if(stage == 0){
-        _world.createWorld();
         stage++;
     }
     else if(stage == 1){
         _test.assertEqual(::worldCreatedCount, 1);
         _event.unsubscribe(_EVENT_WORLD_CREATED);
-        _world.destroyWorld();
-        _world.createWorld();
         stage++;
     }
     else if(stage == 2){
@@ -34,8 +31,6 @@ function update(){
         //The amount should not have been increased because of the unsubscribe.
         _test.assertEqual(::worldCreatedCount, 1);
         _event.subscribe(_EVENT_WORLD_CREATED, worldCreatedCallback);
-        _world.destroyWorld()
-        _world.createWorld()
         stage++;
     }
     else if(stage == 4){

@@ -44,7 +44,7 @@ function update(){
     local failed = false;
     try{
         //Casting when the scene is unsafe should throw an error.
-        _scene.testRayForSlot(createdRay);
+        _scene.testRayForPosition(createdRay);
     }catch(e){
         failed = true;
     }

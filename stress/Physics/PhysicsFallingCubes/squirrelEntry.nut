@@ -1,5 +1,4 @@
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 60, 120);
     _camera.lookAt(20, 0, 20);

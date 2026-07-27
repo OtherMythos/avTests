@@ -17,7 +17,6 @@ function receiverFunction2(){
 }
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 100);
     _camera.lookAt(0, 0, 0);
@@ -25,8 +24,8 @@ function start(){
     ::firstCollision <- false;
     ::secondCollision <- false;
 
-    ::en <- _entity.create(SlotPosition());
-    ::en2 <- _entity.create(SlotPosition());
+    ::en <- _entity.create(Vec3());
+    ::en2 <- _entity.create(Vec3());
 
     local senderTable = {
         "func" : receiverFunction,
@@ -48,7 +47,7 @@ function start(){
     _component.collision.add(en, body, body2);
     _component.collision.add(en2, sender, sender2);
 
-    en2.setPosition(SlotPosition(0, 0, 10, 0, 0));
+    en2.setPosition(Vec3(10,0,0));
 
     _physics.collision[0].addObject(body);
     _physics.collision[0].addObject(sender);

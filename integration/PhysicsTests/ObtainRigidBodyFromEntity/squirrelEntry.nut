@@ -1,11 +1,10 @@
 //This test creates a rigid body, assigns it to an entity, and then tries to re-obtain that body.
 
 function start(){
-    _world.createWorld();
 }
 
 function update(){
-    local en = _entity.create(SlotPosition());
+    local en = _entity.create(Vec3());
     _test.assertEqual(_component.rigidBody.get(en), null);
 
     local shape = _physics.getCubeShape(1, 1, 1);

@@ -1,11 +1,10 @@
 //Check that a mesh can be correctly obtained from an entity's mesh component.
 
 function start(){
-    _world.createWorld();
 }
 
 function update(){
-    local e = _entity.create(SlotPosition());
+    local e = _entity.create(Vec3());
 
     local cubeMesh = _mesh.create("cube");
     _component.mesh.add(e, cubeMesh);

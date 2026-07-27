@@ -34,25 +34,25 @@ function sceneSafeUpdate(){
 
     if(stage == 0){
         //As the mask is 0 nothing should be found, so should return null.
-        local foundPos = _scene.testRayForSlot(::createdRay, 0);
+        local foundPos = _scene.testRayForPosition(::createdRay, 0);
         _test.assertEqual(null, foundPos);
 
         stage++;
     }
     else if(stage == 1){
         //Check all the objects.
-        local foundPos = _scene.testRayForSlot(::createdRay, 0xFFFFFFFF);
+        local foundPos = _scene.testRayForPosition(::createdRay, 0xFFFFFFFF);
         _test.assertNotEqual(null, foundPos);
-        _test.assertTrue(foundPos.toVector3().z < 0);
+        _test.assertTrue(foundPos.z < 0);
 
         stage++;
     }
     else if(stage == 2){
         //Check the one furthest away from the camera.
-        local foundPos = _scene.testRayForSlot(::createdRay, 1 << 6);
+        local foundPos = _scene.testRayForPosition(::createdRay, 1 << 6);
         _test.assertNotEqual(null, foundPos);
 
-        _test.assertTrue(foundPos.toVector3().z > 0);
+        _test.assertTrue(foundPos.z > 0);
 
         stage++;
     }

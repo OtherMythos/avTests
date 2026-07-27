@@ -5,7 +5,6 @@ function functionCallback(id){
 }
 
 function start(){
-    _world.createWorld();
     ::collided <- false;
 
     _camera.setPosition(Vec3(0, 20, 80));

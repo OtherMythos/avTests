@@ -1,7 +1,6 @@
 //A test to check a mesh moves with an attached rigid body.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 200);
     _camera.lookAt(0, 0, 0);

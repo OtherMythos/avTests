@@ -5,7 +5,6 @@ function start(){
 
     ::stage <- 0;
 
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 100);
     _camera.lookAt(0, 0, 0);
@@ -32,7 +31,7 @@ function update(){
             //As there are no more referencs to it, it should now be removed from the world.
             delete ::bodyFirst;
 
-            fallBody.setPosition(SlotPosition(0, 0, 0, 20, 0));
+            fallBody.setPosition(Vec3(0,20,0));
 
             stage++;
         }

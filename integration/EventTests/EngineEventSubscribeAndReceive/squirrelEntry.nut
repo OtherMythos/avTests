@@ -35,12 +35,10 @@ function start(){
 
 function update(){
     if(stage == 0){
-        _world.createWorld();
         stage++;
     }
     else if(stage == 1){
         _test.assertEqual(::worldCreatedCount, 1);
-        _world.destroyWorld();
         stage++;
     }
     else if(stage == 2){

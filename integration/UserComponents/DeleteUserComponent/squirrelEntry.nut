@@ -1,9 +1,8 @@
 //A test to check that components are properly deleted by the system.
 
 function start(){
-    _world.createWorld();
 
-    ::en <- _entity.create(SlotPosition());
+    ::en <- _entity.create(Vec3());
 
     //Regular component removal.
     for(local i = 0; i < 5; i++){
@@ -29,7 +28,7 @@ function start(){
 
     //Destruction by removing the entity.
     for(local i = 0; i < 5; i++){
-        en = _entity.create(SlotPosition());
+        en = _entity.create(Vec3());
 
         _test.assertEqual(_test.userComponents.getNumActiveUserComponents(), 0);
         _component.user[0].add(en);
@@ -46,13 +45,13 @@ function start(){
         _test.assertEqual(_test.userComponents.getNumActiveUserComponents(), 0);
     }
 
-    en = _entity.create(SlotPosition());
+    en = _entity.create(Vec3());
     _component.user[0].add(en);
     _component.user[0].remove(en);
     _entity.destroy(en);
 
     //Check all 16 components can be added properly.
-    en = _entity.create(SlotPosition());
+    en = _entity.create(Vec3());
     for(local i = 0; i < 16; i++){
         _component.user[i].add(en);
     }

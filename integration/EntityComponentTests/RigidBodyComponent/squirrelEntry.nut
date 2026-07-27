@@ -1,11 +1,10 @@
 //A test to check the memory management of shapes and rigid bodies within the rigid body component.
 
 function start(){
-    _world.createWorld();
 }
 
 function update(){
-    local en = _entity.create(SlotPosition());
+    local en = _entity.create(Vec3());
 
     local shape = _physics.getCubeShape(1, 1, 1);
     local body = _physics.dynamics.createRigidBody(shape);

@@ -2,12 +2,11 @@
 
 function start(){
     //Setup the world to create entities.
-    _world.createWorld();
 
     local source = _audio.newSource("res://../../../Resources/Sounds/audioBite.wav");
     source.play();
 
-    ::e <- _entity.create(SlotPosition());
+    ::e <- _entity.create(Vec3());
 
     _component.audio.add(e, source);
 
@@ -17,7 +16,7 @@ function start(){
 
 function update(){
     ::entityPosition.x += 0.05;
-    ::e.setPosition(SlotPosition(::entityPosition));
+    ::e.setPosition(Vec3(::entityPosition));
 
     print(entityPosition);
     local audioSource = _component.audio.get(e, 0);

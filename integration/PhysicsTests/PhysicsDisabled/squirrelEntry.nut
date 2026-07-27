@@ -1,7 +1,6 @@
 //A test to check the disabled physics world returns errors when phyiscs functions are called.
 
 function start(){
-    _world.createWorld();
 }
 
 function update(){

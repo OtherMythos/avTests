@@ -4,7 +4,6 @@ function firstWorldCallback(){
 }
 
 function start(){
-    _world.createWorld();
 
     local senderData = {
         "func": firstWorldCallback,

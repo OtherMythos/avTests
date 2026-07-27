@@ -3,7 +3,6 @@
 function start(){
     _doFile("res:///../../../Resources/scripts/physicsScripts.nut");
 
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 200);
     _camera.lookAt(0, 0, 0);

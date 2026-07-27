@@ -3,7 +3,6 @@
 //This makes sure that the shape doesn't exist until everything using it is removed.
 
 function start(){
-    _world.createWorld();
 }
 
 function update(){

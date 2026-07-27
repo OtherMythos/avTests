@@ -1,10 +1,9 @@
 //A test to check that entities can have their lifetime reduction paused.
 
 function start(){
-    _world.createWorld();
 
-    ::en <- _entity.create(SlotPosition());
-    ::en2 <- _entity.create(SlotPosition());
+    ::en <- _entity.create(Vec3());
+    ::en2 <- _entity.create(Vec3());
     _component.lifetime.add(::en, 100);
     _component.lifetime.add(::en2, 100);
 

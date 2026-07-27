@@ -5,7 +5,6 @@ function start(){
     ::firstCount <- 0;
     ::secondCount <- 0;
     ::objects <- [];
-    _world.createWorld();
 
     local initialTable = {
         "path" : "res://squirrelEntry.nut",
@@ -27,7 +26,6 @@ function start(){
 
         local object = _physics.collision[0].createSender(initialTable, cubeShape);
         _physics.collision[0].addObject(object);
-        //We need to keep track of it.
         objects.append(object);
     }
 

@@ -2,15 +2,14 @@
 //The body with the higher mass should fall quicker.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 200);
     _camera.lookAt(0, 0, 0);
 
     local shape = _physics.getCubeShape(1, 1, 1);
 
-    ::enFirst <- _entity.create(SlotPosition());
-    ::enSecond <- _entity.create(SlotPosition());
+    ::enFirst <- _entity.create(Vec3());
+    ::enSecond <- _entity.create(Vec3());
 
 
     //One shape is created with 0 mass, so should not move.

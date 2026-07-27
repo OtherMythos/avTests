@@ -3,7 +3,6 @@ function collisionFunction(){
 }
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 60, 120);
     _camera.lookAt(20, 0, 20);
@@ -32,9 +31,7 @@ function destroyCreateWorld(){
 
     if(!worldExists){
         //Destroy it.
-        _world.destroyWorld();
     }else{
-        _world.createWorld();
     }
 
     for(local i = 0; i < 20; i++){
@@ -58,7 +55,6 @@ function createSenderAndReceiver(){
     local danglingObject = _physics.collision[0].createSender(creationSenderTable, cubeShape, pos);
     ::objectsContainer.append(danglingObject);
 
-    //We need to keep track of it.
     ::objectsContainer.append(object);
     ::objectsContainer.append(receiver);
 }

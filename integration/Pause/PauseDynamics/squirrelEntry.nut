@@ -1,7 +1,6 @@
 //This test creates a physics object, lets it fall, then pauses the world, checking the object stops appropriately.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 200);
     _camera.lookAt(0, 0, 0);
@@ -9,7 +8,7 @@ function start(){
     ::stageCount <- 0;
     ::stage <- 0;
 
-    ::en <- _entity.create(SlotPosition());
+    ::en <- _entity.create(Vec3());
 
     local shape = _physics.getCubeShape(1, 1, 1);
     ::body <- _physics.dynamics.createRigidBody(shape);
@@ -25,7 +24,7 @@ function update(){
         //Stage count counts how many times each stage happened.
         stageCount++;
         //Should start off at 50.
-        _test.assertEqual(en.getPosition(), SlotPosition());
+        _test.assertEqual(en.getPosition(), Vec3());
 
         if(stageCount >= 10) {
             stageCount = 0;

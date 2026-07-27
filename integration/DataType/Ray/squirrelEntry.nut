@@ -23,7 +23,7 @@ function start(){
     }
 
     {
-        local ray = Ray(SlotPosition(0, 0, 10, 10, 10), Vec3(1, 0, 0));
+        local ray = Ray(Vec3(10,10,10), Vec3(1, 0, 0));
         _test.assertEqual(ray.getOrigin(), Vec3(10, 10, 10));
         _test.assertEqual(ray.getDirection(), Vec3(1, 0, 0));
 

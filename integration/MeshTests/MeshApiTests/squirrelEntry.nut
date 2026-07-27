@@ -3,8 +3,8 @@
 function start(){
     local mesh = _mesh.create("cube");
 
-    //Check for both SlotPosition and Vector3.
-    local startPos = SlotPosition(0, 0, 1, 2, 3);
+    //Check for both Vec3 and Vector3.
+    local startPos = Vec3(1,2,3);
     mesh.setPosition(startPos);
     _test.assertEqual(startPos, mesh.getPosition());
     _test.assertEqual(Vec3(1, 2, 3), mesh.getPositionVec3());

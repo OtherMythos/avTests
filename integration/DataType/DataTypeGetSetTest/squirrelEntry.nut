@@ -54,19 +54,19 @@ function start(){
             local val = vec[0];
         },
 
-        //SlotPosition
+        //Vec3
         function(){
-            local vec = SlotPosition();
+            local vec = Vec3();
             //Incorrect value setter name
             vec.thing = 10;
         },
         function(){
-            local vec = SlotPosition();
+            local vec = Vec3();
             //Incorrect value getter name
             local val = vec.thing;
         },
         function(){
-            local vec = SlotPosition();
+            local vec = Vec3();
             //Query with a value that isn't a string key.
             local val = vec[0];
         },

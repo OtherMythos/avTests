@@ -4,7 +4,6 @@ function start(){
     ::objects <- [];
     ::valueThings <- array(5, false);
     ::expected <- [true, true, false, true, false];
-    _world.createWorld();
 
     local initialTable = {
         "path" : "res://squirrelEntry.nut",
@@ -35,7 +34,6 @@ function start(){
 
         local object = _physics.collision[0].createSender(initialTable, cubeShape);
         _physics.collision[0].addObject(object);
-        //We need to keep track of it.
 
         local receiver = _physics.collision[0].createReceiver(receiverInfo, cubeShape);
         _physics.collision[0].addObject(receiver);

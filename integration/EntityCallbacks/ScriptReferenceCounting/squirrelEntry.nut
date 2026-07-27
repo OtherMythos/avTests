@@ -1,16 +1,15 @@
 //Check script reference counting by assigning it to a number of entities and then removing those entities.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 100, 100);
     _camera.lookAt(0, 0, 0);
 
-    ::a <- _entity.create(SlotPosition());
-    ::b <- _entity.create(SlotPosition());
-    ::c <- _entity.create(SlotPosition());
-    ::d <- _entity.create(SlotPosition());
-    ::e <- _entity.create(SlotPosition());
+    ::a <- _entity.create(Vec3());
+    ::b <- _entity.create(Vec3());
+    ::c <- _entity.create(Vec3());
+    ::d <- _entity.create(Vec3());
+    ::e <- _entity.create(Vec3());
 
     foreach(i in [a, b, c, d, e]){
         _component.mesh.add(i, "ogrehead2.mesh");

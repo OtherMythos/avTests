@@ -1,7 +1,6 @@
 //Test to check I can pause the entity update function.
 
 function start(){
-    _world.createWorld();
 
     ::updateCount <- 0;
     ::prevUpdateCount <- 0;
@@ -11,7 +10,7 @@ function start(){
     _camera.setPosition(0, 100, 100);
     _camera.lookAt(0, 0, 0);
 
-    ::e <- _entity.create(SlotPosition());
+    ::e <- _entity.create(Vec3());
 
     _test.assertEqual(_test.entityManager.getLoadedCallbackScriptCount(), 0);
 

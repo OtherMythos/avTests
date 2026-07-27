@@ -12,11 +12,10 @@ function start(){
     ::stage <- 0;
     ::stageCount <- 0;
 
-    _world.createWorld();
 
     _physics.dynamics.addBody(bodyFirst);
 
-    ::en <- _entity.create(SlotPosition());
+    ::en <- _entity.create(Vec3());
 
     //Create an entity and give it this body. That should work now as the world exists.
     _component.rigidBody.add(en, bodyFirst);
@@ -31,7 +30,6 @@ function update(){
         }
     }
     if(stage == 1){
-        _world.destroyWorld();
 
         _test.assertFalse(en.valid());
         stageCount = 0;
@@ -47,9 +45,8 @@ function update(){
     }
     if(stage == 3){
         //Create the world and all the pieces again.
-        _world.createWorld();
 
-        ::en = _entity.create(SlotPosition());
+        ::en = _entity.create(Vec3());
         //local body2 = _physics.dynamics.createRigidBody(first);
         //_component.rigidBody.add(en, body2);
         _component.rigidBody.add(en, bodyFirst);

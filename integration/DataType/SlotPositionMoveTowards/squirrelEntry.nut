@@ -2,13 +2,12 @@
 
 function start(){
 
-    _world.createWorld();
 
-    ::startPos <- SlotPosition();
-    ::destination <- SlotPosition(0, 0, 30, 0, 40);
+    ::startPos <- Vec3();
+    ::destination <- Vec3(30,0,40);
     ::mesh <- _mesh.create("cube");
 
-    ::e <- _entity.create(SlotPosition());
+    ::e <- _entity.create(Vec3());
 
     _camera.setPosition(0, 50, 100);
     _camera.lookAt(0, 0, 0);

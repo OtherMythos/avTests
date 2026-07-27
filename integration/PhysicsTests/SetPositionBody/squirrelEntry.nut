@@ -1,7 +1,6 @@
 //A test to check that the rigid body function setPosition operates as intended.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 200);
     _camera.lookAt(0, 0, 0);
@@ -21,8 +20,8 @@ function update(){
     if(stage == 0){
         if(mesh.getPosition().y < -100){
             //Back to the origin
-            body.setPosition(SlotPosition());
-            //_test.assertEqual(mesh.getPosition(), SlotPosition());
+            body.setPosition(Vec3());
+            //_test.assertEqual(mesh.getPosition(), Vec3());
 
             stageCount = 0;
             stage++;

@@ -1,7 +1,6 @@
 //A test to check that setting an entity position also moves the attached rigid body.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 100);
     _camera.lookAt(0, 0, 0);
@@ -9,7 +8,7 @@ function start(){
     ::stage <- 0;
     ::stageCount <- 0;
 
-    ::en <- _entity.create(SlotPosition());
+    ::en <- _entity.create(Vec3());
     local shape = _physics.getCubeShape(1, 1, 1);
     local body = _physics.dynamics.createRigidBody(shape);
     _component.rigidBody.add(en, body);
@@ -23,8 +22,8 @@ function update(){
     if(stage == 0){
         if(en.getPosition().y < -100){
             //Back to the origin
-            en.setPosition(SlotPosition());
-            _test.assertEqual(en.getPosition(), SlotPosition());
+            en.setPosition(Vec3());
+            _test.assertEqual(en.getPosition(), Vec3());
 
             stage++;
         }

@@ -1,7 +1,6 @@
 //A test to check that setting a mesh position also moves the attached rigid body.
 
 function start(){
-    _world.createWorld();
 
     _camera.setPosition(0, 0, 100);
     _camera.lookAt(0, 0, 0);
@@ -22,8 +21,8 @@ function update(){
     if(stage == 0){
         if(mesh.getPosition().y < -100){
             //Back to the origin
-            mesh.setPosition(SlotPosition());
-            _test.assertEqual(mesh.getPosition(), SlotPosition());
+            mesh.setPosition(Vec3());
+            _test.assertEqual(mesh.getPosition(), Vec3());
 
             stage++;
         }
