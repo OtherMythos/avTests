@@ -1,48 +1,51 @@
-//A test to check system events can be subscribed to and received correctly.
+//A test to check events can be subscribed to and received correctly.
 
-function worldCreatedCallback(id, data){
-    _test.assertEqual(id, _EVENT_WORLD_CREATED);
+::FIRST_EVENT <- 1001;
+::SECOND_EVENT <- 1002;
+
+function firstCallback(id, data){
+    _test.assertEqual(id, ::FIRST_EVENT);
     _test.assertEqual(data, null); //The data for certain events will be null.
-    print("window resized event");
-    ::worldCreatedCount++;
+    ::firstCount++;
 }
 
-function worldDestroyedCallback(id, data){
-    _test.assertEqual(id, _EVENT_WORLD_DESTROYED);
+function secondCallback(id, data){
+    _test.assertEqual(id, ::SECOND_EVENT);
     _test.assertEqual(data, null);
-    print("Engine closed event");
-    ::worldDestroyedCount++;
+    ::secondCount++;
 }
 
 function start(){
-    _event.subscribe(_EVENT_WORLD_CREATED, worldCreatedCallback);
-    _event.subscribe(_EVENT_WORLD_DESTROYED, worldDestroyedCallback);
+    _event.subscribe(::FIRST_EVENT, firstCallback);
+    _event.subscribe(::SECOND_EVENT, secondCallback);
 
     local errorFound = false;
     try{
         //Subscribing to null should throw an error.
-        _event.subscribe(_EVENT_NULL, worldDestroyedCallback);
+        _event.subscribe(_EVENT_NULL, secondCallback);
     }catch(e){
         errorFound = true;
     }
     _test.assertTrue(errorFound);
 
-    ::worldCreatedCount <- 0;
-    ::worldDestroyedCount <- 0;
+    ::firstCount <- 0;
+    ::secondCount <- 0;
 
     ::stage <- 0;
 }
 
 function update(){
     if(stage == 0){
+        _event.transmit(::FIRST_EVENT, null);
         stage++;
     }
     else if(stage == 1){
-        _test.assertEqual(::worldCreatedCount, 1);
+        _test.assertEqual(::firstCount, 1);
+        _event.transmit(::SECOND_EVENT, null);
         stage++;
     }
     else if(stage == 2){
-        _test.assertEqual(::worldDestroyedCount, 1);
+        _test.assertEqual(::secondCount, 1);
 
         _test.endTest();
     }

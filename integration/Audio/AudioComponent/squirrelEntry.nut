@@ -16,7 +16,7 @@ function start(){
 
 function update(){
     ::entityPosition.x += 0.05;
-    ::e.setPosition(Vec3(::entityPosition));
+    ::e.setPosition(::entityPosition);
 
     print(entityPosition);
     local audioSource = _component.audio.get(e, 0);

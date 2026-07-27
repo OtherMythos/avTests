@@ -9,7 +9,7 @@ function update(){
     local count = _test.entityManager.getEntityCount();
     _test.assertEqual(1, count);
 
-    e = _entity.create(Vec3());
+    e = _entity.create(Vec3(100, 0, 100));
     count = _test.entityManager.getEntityCount();
     _test.assertEqual(2, count);
 

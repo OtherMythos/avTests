@@ -14,17 +14,15 @@ function update(){
     _test.assertEqual(currentPos, Vec3(0, 0, 0));
 
     //Move the entity.
-    e.setPosition(Vec3());
+    e.setPosition(Vec3(50, 0, 50));
 
     currentPos = mesh.getPositionVec3();
-    //Now should be at one chunk in (50x50)
     _test.assertEqual(currentPos, Vec3(50, 0, 50));
 
-    e.setPosition(Vec3());
+    e.setPosition(Vec3(-100, 0, -100));
 
     currentPos = mesh.getPositionVec3();
     _test.assertEqual(currentPos, Vec3(-100, 0, -100));
-
 
     _test.endTest();
 }
