@@ -1,0 +1,1 @@
+::pluginHelperValue <- "helperLoaded";
