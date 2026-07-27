@@ -7,7 +7,7 @@ function stationary(currentPos){
         _test.endTest(false);
     }
 
-    if(stationaryPreviousPos == currentPos){
+    if(stationaryPreviousPos.equals(currentPos)){
         stationaryPreviousCount++;
     }else{
         stationaryPreviousCount = 0;
