@@ -53,13 +53,17 @@ function update(){
     }else if(stage == 1){
         _test.assertEqual(enterCount, 1);
         _test.assertEqual(insideCount, 1);
-        ::expectedInsideCount <- insideCount;
+        //insideCount + 1, because the physics step scheduled at the end of this update produces
+        //another inside event which the next update drains. Physics advances exactly one step per
+        //update, so the expected count and the real one stay in step from here.
+        ::expectedInsideCount <- insideCount + 1;
         stage++;
     }else if(stage == 2){
         //Keep checking inside is called.
         _test.assertEqual(insideCount, expectedInsideCount);
         expectedInsideCount++;
-        if(expectedInsideCount >= 30){
+        //Runs one update longer than >= would, so insideCount reaches the 30 stage 3 checks for.
+        if(expectedInsideCount > 30){
             _physics.collision[0].removeObject(::sender);
             _physics.collision[0].removeObject(::receiver);
             ::stageCount <- 0;
@@ -73,7 +77,10 @@ function update(){
             _test.assertEqual(leaveCount, 1);
             _physics.collision[0].addObject(::sender);
             _physics.collision[0].addObject(::receiver);
-            ::expectedInsideCount = 0;
+            //1 rather than 0 for the same reason as stage 1: the counters are zeroed here, then
+            //the step scheduled at the end of this update produces one inside event before the
+            //first stage 4 update gets to look.
+            ::expectedInsideCount = 1;
             ::insideCount = 0;
             ::enterCount = 0;
             ::leaveCount = 0;
