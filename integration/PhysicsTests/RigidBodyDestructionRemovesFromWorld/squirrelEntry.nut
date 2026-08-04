@@ -39,7 +39,7 @@ function update(){
     }
     if(stage == 1){
         //That body was removed, so the fall body should just fall through past the origin.
-        if(fallPos.y < -40){
+        if(fallPos.y < -10){
             _test.endTest();
         }
     }

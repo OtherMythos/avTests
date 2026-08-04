@@ -18,7 +18,7 @@ function start(){
 
 function update(){
     print(mesh.getPosition());
-    if(mesh.getPosition().y < -50){
+    if(mesh.getPosition().y < -15){
         _test.endTest();
     }
 }

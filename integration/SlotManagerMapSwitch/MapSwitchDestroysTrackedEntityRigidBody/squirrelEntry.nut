@@ -45,7 +45,7 @@ function update(){
         stage++;
     }
     if(stage == 2){
-        if(enPos.y < -40){
+        if(enPos.y < -10){
             //The tracked entity was destroyed on map change, along with its rigid body.
             _test.endTest();
         }

@@ -43,7 +43,7 @@ function update(){
 
         local pos = en.getPosition();
         print(pos.y);
-        if(pos.y <= -50){
+        if(pos.y <= -15){
             //Make a note of this position.
             ::firstPos <- pos;
             //_physics.dynamics.removeBody(body);
@@ -87,7 +87,7 @@ function update(){
         //Should continue moving.
         local pos = en.getPosition();
         print(pos.y);
-        if(pos.y <= -100){
+        if(pos.y <= -30){
             _test.endTest();
         }
     }

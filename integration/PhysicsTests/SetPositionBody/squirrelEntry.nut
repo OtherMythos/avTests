@@ -19,7 +19,7 @@ function start(){
 
 function update(){
     if(stage == 0){
-        if(mesh.getPosition().y < -100){
+        if(mesh.getPosition().y < -20){
             //Back to the origin
             body.setPosition(SlotPosition());
             //_test.assertEqual(mesh.getPosition(), SlotPosition());

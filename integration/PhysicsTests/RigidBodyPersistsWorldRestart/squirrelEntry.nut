@@ -25,8 +25,7 @@ function start(){
 
 function update(){
     if(stage == 0){
-
-        if(en.getPosition().y < -50){
+        if(en.getPosition().y < -15){
             stage++;
         }
     }

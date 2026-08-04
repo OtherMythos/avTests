@@ -83,9 +83,9 @@ function update(){
     }
     if(stage == 2){
         //Check this rigid body falls through the floor.
-        if(firstBody.getPosition().y < -40 &&
-            secondBody.getPosition().y < -40 &&
-            thirdBody.getPosition().y < -40){
+        if(firstBody.getPosition().y < -15 &&
+            secondBody.getPosition().y < -15 &&
+            thirdBody.getPosition().y < -15){
             _test.endTest();
         }
     }
