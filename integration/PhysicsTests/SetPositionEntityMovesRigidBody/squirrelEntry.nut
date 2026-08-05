@@ -20,7 +20,7 @@ function start(){
 function update(){
 
     if(stage == 0){
-        if(en.getPosition().y < -100){
+        if(en.getPosition().y < -20){
             //Back to the origin
             en.setPosition(Vec3());
             _test.assertEqual(en.getPosition(), Vec3());

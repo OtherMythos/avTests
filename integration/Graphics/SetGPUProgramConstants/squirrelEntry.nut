@@ -19,7 +19,7 @@ function start(){
 }
 
 function update(){
-    ::testVal += 0.01;
+    ::testVal += 0.1;
 
     if(stage == 0){
         ::prog.setNamedConstant("firstVal", testVal);

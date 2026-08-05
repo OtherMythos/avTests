@@ -1,0 +1,97 @@
+// Refraction capable compositor for the setTransparency test.
+//
+// _PBS_TRANSPARENCY_REFRACTIVE samples the scene that has already been rendered, so the
+// refractive objects cannot be drawn into the same target they read from. This is the
+// non-MSAA setup described by Ogre's Media/2.0/scripts/Compositors/Refractions.compositor.example
+// (the engine never requests FSAA, so the MSAA variant isn't needed here).
+//
+// Render queue split: the engine only exposes render queues 0-100 to script, so the
+// refractive pass sits at 50 rather than at Ogre's usual convention of 200.
+// Queues 0-99 are already put into FAST mode by OgreSetup::setupScene, so v2 Items work.
+
+compositor_node RefractionsTestNode
+{
+	in 0 rt_renderwindow
+
+	// rtt01 & rtt_final MUST share the same depth buffer.
+	// Depth pools already take care of that, but be explicit about it.
+	texture depthBuffer	target_width target_height PFG_D32_FLOAT
+	texture rtt01		target_width target_height target_format
+	texture rtt_final	target_width target_height target_format
+
+	rtv rtt01
+	{
+		depth_stencil	depthBuffer
+	}
+	rtv rtt_final
+	{
+		depth_stencil	depthBuffer
+	}
+
+	target rtt01
+	{
+		// Everything which isn't refractive. This is what the refractive pass samples.
+		pass render_scene
+		{
+			load
+			{
+				all				clear
+				clear_colour	1 0 1 1
+			}
+			store
+			{
+				colour	store_or_resolve
+				depth	store
+				stencil	dont_care
+			}
+
+			rq_last		50
+		}
+	}
+
+	target rtt_final
+	{
+		// Copy so rendering can continue into rtt_final while rtt01 is sampled.
+		pass render_quad
+		{
+			load { all dont_care }
+			material Ogre/Copy/4xFP32
+			input 0 rtt01
+		}
+
+		// The refractive objects.
+		pass render_scene
+		{
+			load
+			{
+				all		load
+			}
+			store
+			{
+				colour	store_or_resolve
+				depth	dont_care
+				stencil	dont_care
+			}
+
+			rq_first		50
+			rq_last			51
+
+			use_refractions	depthBuffer rtt01
+		}
+	}
+
+	target rt_renderwindow
+	{
+		pass render_quad
+		{
+			load { all dont_care }
+			material Ogre/Copy/4xFP32
+			input 0 rtt_final
+		}
+	}
+}
+
+workspace RefractionsTestWorkspace
+{
+	connect_output RefractionsTestNode 0
+}

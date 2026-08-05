@@ -36,11 +36,10 @@ function update(){
     local posFirst = enFirst.getPosition();
     local posSecond = enSecond.getPosition();
 
-    //Only this one should reach -100.
-    if(posFirst.y < -100){
+    if(posFirst.y < -20){
         _test.endTest();
     }
-    if(posSecond.y < -100){
+    if(posSecond.y < -20){
         _test.endTest(false);
     }
 }

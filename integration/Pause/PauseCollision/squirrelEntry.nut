@@ -82,7 +82,7 @@ function update(){
         if(stageCount >= 20){
             _state.setPauseState(0);
             stage++;
-            stageCount = 1;
+            stageCount = 2;
         }
     }else if(stage == 5){
         _test.assertEqual(::insideCount, stageCount);

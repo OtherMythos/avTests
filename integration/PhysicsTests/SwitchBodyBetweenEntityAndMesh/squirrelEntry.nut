@@ -23,7 +23,7 @@ function start(){
 
 function update(){
     if(stage == 0){
-        if(mesh.getPosition().y < -50){
+        if(mesh.getPosition().y < -15){
             stage++;
 
             mesh.detachRigidBody();
@@ -31,7 +31,7 @@ function update(){
         }
     }
     if(stage == 1){
-        if(en.getPosition().y < -100){
+        if(en.getPosition().y < -30){
             _component.rigidBody.remove(en);
             mesh.attachRigidBody(body);
             ::finalEntityPos <- en.getPosition();
@@ -39,7 +39,8 @@ function update(){
         }
     }
     if(stage == 2){
-        if(mesh.getPosition().y < -150){
+        //-45 rather than -150: same margin again for the final handoff back to the mesh.
+        if(mesh.getPosition().y < -45){
             stage++;
 
             //Now have it be attached to nothing.

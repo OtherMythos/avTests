@@ -99,13 +99,14 @@ function start(){
     _test.assertEqual(num, 1);
 
     //Check I can have more than one end value without crashes.
-    _system.writeJsonAsFile("/tmp/writtenThing.json", data, false, true, 10, 20);
+    //NOTE the extra parameters here are ignored and used to test the engine handling.
+    _system.writeJsonAsFile("/tmp/writtenThing.json", data, false, 3, 10, 20);
     checkWrittenJSON();
     local num = getNumLinesInFile("/tmp/writtenThing.json");
     _test.assertTrue(num == 1);
 
     //Pretty print and expect there to be more than 1 line.
-    _system.writeJsonAsFile("/tmp/writtenThing.json", data, true, true, 10, 20);
+    _system.writeJsonAsFile("/tmp/writtenThing.json", data, true, 3, 10, 20);
     checkWrittenJSON();
     local num = getNumLinesInFile("/tmp/writtenThing.json");
     _test.assertTrue(num > 1);

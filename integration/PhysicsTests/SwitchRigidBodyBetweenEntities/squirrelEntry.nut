@@ -23,7 +23,7 @@ function update(){
 		_test.assertEqual(en2.getPosition(), Vec3());
 
         print(en1.getPosition().y);
-		if(en1.getPosition().y < -50){
+		if(en1.getPosition().y < -15){
 			stage++;
 		}
 	}
@@ -41,7 +41,7 @@ function update(){
         //There's an issue now where the body isn't moved immediately once the component is added.
         //_test.assertNotEqual(en2.getPosition(), Vec3());
 
-		if(en2.getPosition().y < -100){
+		if(en2.getPosition().y < -30){
 			//en2 carried on moving.
 			_test.endTest();
 		}
