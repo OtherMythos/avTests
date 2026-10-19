@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<scene>
+    <mesh name="first" mesh="cube" tag="spawn" />
+    <mesh name="second" mesh="lineBox" tag="spawn" />
+</scene>
