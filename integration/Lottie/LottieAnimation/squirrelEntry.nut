@@ -51,6 +51,7 @@ function update(){
 
     stagingTexture.stopMapRegion();
     stagingTexture.upload(textureBox, texture, 0);
+    texture.barrierSolveTexture();
 
 
     ::currentFrame++;

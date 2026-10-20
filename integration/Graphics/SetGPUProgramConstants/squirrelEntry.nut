@@ -44,7 +44,12 @@ function update(){
     else if(stage == 5){
         if(testVal > 0.5) boolToggle = true;
         print("Bool value: " + boolToggle);
-        ::prog.setNamedConstant("boolValue", boolToggle);
+        //Vulkan uniform blocks can't hold a bool, so the shader's bool is reflected as a uint there.
+        if(_settings.getCurrentRenderSystem() == _RenderSystemVulkan){
+            ::prog.setNamedConstant("boolValue", boolToggle ? 1 : 0);
+        }else{
+            ::prog.setNamedConstant("boolValue", boolToggle);
+        }
     }
     else if(stage == 6){
         //Set some float values

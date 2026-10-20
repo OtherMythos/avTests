@@ -26,7 +26,7 @@ function start(){
 
     local failed = false;
     try{
-        //As this isn't createOrRetreive, it should throw an error if the texture already exists.
+        //As this isn't createOrRetrieve, it should throw an error if the texture already exists.
         local secondNewTexSameHandle = _graphics.createTexture("testTexture");
     }catch(e){
         failed = true;
@@ -34,7 +34,12 @@ function start(){
     _test.assertTrue(failed);
 
     //Getting an already existing texture.
-    local secondNewTexSameHandle = _graphics.createOrRetreiveTexture("testTexture");
+    local secondNewTexSameHandle = _graphics.createOrRetrieveTexture(
+        "testTexture",
+        _GPU_PAGE_OUT_STRATEGY_DISCARD,
+        _TEXTURE_FLAG_RENDER_TO_TEXTURE,
+        _TEXTURE_TYPE_2D
+    );
     _test.assertTrue(secondNewTexSameHandle.isValid());
 
     //Destroy one handle and both of them should be destroyed.
@@ -43,7 +48,12 @@ function start(){
     _test.assertFalse(secondNewTex.isValid());
 
     //Create the texture again, checking it can be created fine.
-    local thirdHandle = _graphics.createOrRetreiveTexture("testTexture");
+    local thirdHandle = _graphics.createOrRetrieveTexture(
+        "testTexture",
+        _GPU_PAGE_OUT_STRATEGY_DISCARD,
+        _TEXTURE_FLAG_RENDER_TO_TEXTURE,
+        _TEXTURE_TYPE_2D
+    );
     _test.assertTrue(thirdHandle.isValid());
 
     _test.endTest();

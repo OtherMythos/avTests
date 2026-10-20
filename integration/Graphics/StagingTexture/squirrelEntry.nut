@@ -42,6 +42,7 @@ function start(){
 
     stagingTexture.stopMapRegion();
     stagingTexture.upload(textureBox, texture, 0);
+    texture.barrierSolveTexture();
 
     {
         local datablock = _hlms.unlit.createDatablock("testDatablock");
