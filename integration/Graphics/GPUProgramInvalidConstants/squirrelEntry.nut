@@ -72,8 +72,14 @@ function start(){
     }
 
     //Set valid values.
-    prog.setNamedConstant("boolValue", true);
-    prog.setNamedConstant("boolValue", false);
+    //Vulkan uniform blocks can't hold a bool, so the shader's bool is reflected as a uint there.
+    if(_settings.getCurrentRenderSystem() == _RenderSystemVulkan){
+        prog.setNamedConstant("boolValue", 1);
+        prog.setNamedConstant("boolValue", 0);
+    }else{
+        prog.setNamedConstant("boolValue", true);
+        prog.setNamedConstant("boolValue", false);
+    }
     prog.setNamedConstant("stage", 2);
     prog.setNamedConstant("firstVal", 20.0);
 
