@@ -1,0 +1,55 @@
+fragment_program gpuProgramConstants_ps_GLSL glsl
+{
+    source gpuProgramConstants_ps.glsl
+}
+
+fragment_program gpuProgramConstants_ps_VK glslvk
+{
+    source gpuProgramConstants_ps.glsl
+}
+
+fragment_program gpuProgramConstants_ps_HLSL hlsl
+{
+    source gpuProgramConstants_ps.hlsl
+    target ps_5_0 ps_4_0 ps_4_0_level_9_1 ps_4_0_level_9_3
+    entry_point main
+}
+
+fragment_program gpuProgramConstants_ps_Metal metal
+{
+    source gpuProgramConstants_ps.metal
+    shader_reflection_pair_hint Ogre/Compositor/Quad_vs
+}
+
+fragment_program gpuProgramConstants_ps unified
+{
+    delegate gpuProgramConstants_ps_GLSL
+    delegate gpuProgramConstants_ps_VK
+    delegate gpuProgramConstants_ps_HLSL
+    delegate gpuProgramConstants_ps_Metal
+}
+
+material Postprocess/gpuProgramConstants
+{
+    technique
+    {
+        pass
+        {
+            depth_check off
+            depth_write off
+
+            cull_hardware none
+
+            vertex_program_ref Ogre/Compositor/Quad_vs
+            {
+            }
+
+            fragment_program_ref gpuProgramConstants_ps
+            {
+
+                param_named_auto time_0_X time_0_x 120
+                param_named_auto sin_time_0_X sintime_0_x 120
+            }
+        }
+    }
+}

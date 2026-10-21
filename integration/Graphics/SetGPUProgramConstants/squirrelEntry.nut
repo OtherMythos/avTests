@@ -6,7 +6,7 @@ function start(){
     local renderTexture = _window.getRenderTexture();
     ::workspace <- _compositor.addWorkspace([renderTexture], _camera.getCamera(), "testWorkspace", true);
 
-    local material = _graphics.getMaterialByName("Postprocess/glitchEffect");
+    local material = _graphics.getMaterialByName("Postprocess/gpuProgramConstants");
     print(material.getName());
     local fragmentParams = material.getFragmentProgramParameters(0, 0);
     print(fragmentParams);
@@ -45,7 +45,9 @@ function update(){
         if(testVal > 0.5) boolToggle = true;
         print("Bool value: " + boolToggle);
         //Vulkan uniform blocks can't hold a bool, so the shader's bool is reflected as a uint there.
-        if(_settings.getCurrentRenderSystem() == _RenderSystemVulkan){
+        //Ogre's D3D11 backend can't reflect an HLSL bool, so the HLSL shader declares a uint.
+        local renderSystem = _settings.getCurrentRenderSystem();
+        if(renderSystem == _RenderSystemVulkan || renderSystem == _RenderSystemD3D11){
             ::prog.setNamedConstant("boolValue", boolToggle ? 1 : 0);
         }else{
             ::prog.setNamedConstant("boolValue", boolToggle);

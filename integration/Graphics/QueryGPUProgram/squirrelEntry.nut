@@ -10,7 +10,7 @@ function start(){
     }
     _test.assertTrue(failed);
 
-    local fragProg = _graphics.getGpuProgramByName("glitchEffect_ps");
+    local fragProg = _graphics.getGpuProgramByName("gpuProgramConstants_ps");
     _test.assertEqual(fragProg.getType(), _GPU_PROG_TYPE_FRAGMENT);
 
     local vertProg = _graphics.getGpuProgramByName("Ogre/Compositor/Quad_vs");
