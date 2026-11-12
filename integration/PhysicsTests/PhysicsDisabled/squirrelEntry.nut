@@ -30,5 +30,21 @@ function update(){
     _test.assertTrue(impactsError);
 
 
+    local shiftError = false;
+    try{
+        _physics.dynamics.shiftOrigin(Vec3());
+    }catch(e){
+        shiftError = true;
+    }
+    _test.assertTrue(shiftError);
+
+    local statsError = false;
+    try{
+        _physics.dynamics.getStats();
+    }catch(e){
+        statsError = true;
+    }
+    _test.assertTrue(statsError);
+
     _test.endTest();
 }
