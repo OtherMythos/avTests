@@ -1,0 +1,32 @@
+compositor_node VideoGuiPlaybackNode
+{
+    in 0 guiTexture
+    in 1 renderWindow
+
+    target guiTexture
+    {
+        pass clear
+        {
+            colour_value 1 0 1 1
+        }
+
+        pass custom colibri_gui
+        {
+        }
+    }
+
+    target renderWindow
+    {
+        pass render_quad
+        {
+            material Ogre/Copy/4xFP32
+            input 0 guiTexture
+        }
+    }
+}
+
+workspace VideoGuiPlaybackWorkspace
+{
+    connect_external 0 VideoGuiPlaybackNode 0
+    connect_external 1 VideoGuiPlaybackNode 1
+}
