@@ -1,0 +1,27 @@
+compositor_node CustomPiecesRender/node
+{
+    in 0 target
+
+    target target
+    {
+        pass render_scene
+        {
+            load
+            {
+                all clear
+                clear_colour 0 0 0 0
+            }
+            store
+            {
+                colour store
+                depth dont_care
+                stencil dont_care
+            }
+        }
+    }
+}
+
+workspace CustomPiecesRender/workspace
+{
+    connect_external 0 CustomPiecesRender/node 0
+}

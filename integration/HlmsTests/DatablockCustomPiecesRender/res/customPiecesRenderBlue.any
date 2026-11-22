@@ -1,0 +1,7 @@
+@property( customPiecesBlue )
+@piece( custom_ps_posExecution )
+	@property( !hlms_shadowcaster )
+		outPs_colour0 = float4( 0.0, 0.0, 1.0, 1.0 );
+	@end
+@end
+@end

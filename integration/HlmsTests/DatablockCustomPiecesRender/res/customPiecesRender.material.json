@@ -1,0 +1,11 @@
+{
+    "unlit" :
+    {
+        "customPiecesRenderJson" :
+        {
+            "diffuse" : [1, 0, 0, 1],
+            "custom_piece_file_ps" : [ "customPiecesRenderBlue.any", "General" ],
+            "custom_properties" : { "customPiecesBlue" : 1 }
+        }
+    }
+}
